@@ -1,0 +1,2084 @@
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_3bba5/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_3bba5.dir/build.make CMakeFiles/cmTC_3bba5.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3bba5.dir/src.c.o
+/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics  -fPIE -o CMakeFiles/cmTC_3bba5.dir/src.c.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_3bba5
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3bba5.dir/link.txt --verbose=1
+/usr/bin/cc -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics  -Wl,-z,relro -fuse-ld=lld  CMakeFiles/cmTC_3bba5.dir/src.c.o -o cmTC_3bba5 
+ld.lld: error: undefined symbol: pthread_create
+>>> referenced by src.c:11 (./build/CMakeFiles/CMakeTmp/src.c:11)
+>>>               CMakeFiles/cmTC_3bba5.dir/src.c.o:(main)
+
+ld.lld: error: undefined symbol: pthread_detach
+>>> referenced by src.c:12 (./build/CMakeFiles/CMakeTmp/src.c:12)
+>>>               CMakeFiles/cmTC_3bba5.dir/src.c.o:(main)
+
+ld.lld: error: undefined symbol: pthread_cancel
+>>> referenced by src.c:13 (./build/CMakeFiles/CMakeTmp/src.c:13)
+>>>               CMakeFiles/cmTC_3bba5.dir/src.c.o:(main)
+
+ld.lld: error: undefined symbol: pthread_join
+>>> referenced by src.c:14 (./build/CMakeFiles/CMakeTmp/src.c:14)
+>>>               CMakeFiles/cmTC_3bba5.dir/src.c.o:(main)
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_3bba5.dir/build.make:99: cmTC_3bba5] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_3bba5/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_2cfae/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_2cfae.dir/build.make CMakeFiles/cmTC_2cfae.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2cfae.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -DCHECK_FUNCTION_EXISTS=pthread_create -fPIE -o CMakeFiles/cmTC_2cfae.dir/CheckFunctionExists.c.o -c /usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c
+Linking C executable cmTC_2cfae
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2cfae.dir/link.txt --verbose=1
+/usr/bin/cc -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -DCHECK_FUNCTION_EXISTS=pthread_create -Wl,-z,relro -fuse-ld=lld  CMakeFiles/cmTC_2cfae.dir/CheckFunctionExists.c.o -o cmTC_2cfae  -lpthreads 
+ld.lld: error: unable to find library -lpthreads
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_2cfae.dir/build.make:99: cmTC_2cfae] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_2cfae/fast] Error 2
+
+
+
+Determining if the function floor exists failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_9ac47/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_9ac47.dir/build.make CMakeFiles/cmTC_9ac47.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9ac47.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -DCHECK_FUNCTION_EXISTS=floor -fPIE -o CMakeFiles/cmTC_9ac47.dir/CheckFunctionExists.c.o -c /usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c
+<command-line>: warning: conflicting types for built-in function 'floor'; expected 'double(double)' [-Wbuiltin-declaration-mismatch]
+/usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c:7:3: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+    7 |   CHECK_FUNCTION_EXISTS(void);
+      |   ^~~~~~~~~~~~~~~~~~~~~
+/usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c:1:1: note: 'floor' is declared in header '<math.h>'
+  +++ |+#include <math.h>
+    1 | #ifdef CHECK_FUNCTION_EXISTS
+Linking C executable cmTC_9ac47
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9ac47.dir/link.txt --verbose=1
+/usr/bin/cc -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -DCHECK_FUNCTION_EXISTS=floor -Wl,-z,relro -fuse-ld=lld  CMakeFiles/cmTC_9ac47.dir/CheckFunctionExists.c.o -o cmTC_9ac47 
+ld.lld: error: undefined symbol: floor
+>>> referenced by CheckFunctionExists.c:17 (/usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c:17)
+>>>               CMakeFiles/cmTC_9ac47.dir/CheckFunctionExists.c.o:(main)
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_9ac47.dir/build.make:99: cmTC_9ac47] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_9ac47/fast] Error 2
+
+
+
+Determining if the function dlopen exists failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_d5169/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_d5169.dir/build.make CMakeFiles/cmTC_d5169.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d5169.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -DCHECK_FUNCTION_EXISTS=dlopen -fPIE -o CMakeFiles/cmTC_d5169.dir/CheckFunctionExists.c.o -c /usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c
+Linking C executable cmTC_d5169
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d5169.dir/link.txt --verbose=1
+/usr/bin/cc -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -DCHECK_FUNCTION_EXISTS=dlopen -Wl,-z,relro -fuse-ld=lld  CMakeFiles/cmTC_d5169.dir/CheckFunctionExists.c.o -o cmTC_d5169 
+ld.lld: error: undefined symbol: dlopen
+>>> referenced by CheckFunctionExists.c:17 (/usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c:17)
+>>>               CMakeFiles/cmTC_d5169.dir/CheckFunctionExists.c.o:(main)
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_d5169.dir/build.make:99: cmTC_d5169] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_d5169/fast] Error 2
+
+
+
+Determining if the function timer_create exists failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_0f3dc/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_0f3dc.dir/build.make CMakeFiles/cmTC_0f3dc.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0f3dc.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -DCHECK_FUNCTION_EXISTS=timer_create -fPIE -o CMakeFiles/cmTC_0f3dc.dir/CheckFunctionExists.c.o -c /usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c
+Linking C executable cmTC_0f3dc
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0f3dc.dir/link.txt --verbose=1
+/usr/bin/cc -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -DCHECK_FUNCTION_EXISTS=timer_create -Wl,-z,relro -fuse-ld=lld  CMakeFiles/cmTC_0f3dc.dir/CheckFunctionExists.c.o -o cmTC_0f3dc 
+ld.lld: error: undefined symbol: timer_create
+>>> referenced by CheckFunctionExists.c:17 (/usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c:17)
+>>>               CMakeFiles/cmTC_0f3dc.dir/CheckFunctionExists.c.o:(main)
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_0f3dc.dir/build.make:99: cmTC_0f3dc] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_0f3dc/fast] Error 2
+
+
+
+Determining if files sys/types.h;sasl/sasl.h exist failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_f1672/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_f1672.dir/build.make CMakeFiles/cmTC_f1672.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f1672.dir/HAVE_SASL_SASL_H.c.o
+/usr/bin/cc   -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics  -fPIE -o CMakeFiles/cmTC_f1672.dir/HAVE_SASL_SASL_H.c.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CheckIncludeFiles/HAVE_SASL_SASL_H.c
+/mnt/percona-xtrabackup/build/CMakeFiles/CheckIncludeFiles/HAVE_SASL_SASL_H.c:3:10: fatal error: sasl/sasl.h: No such file or directory
+    3 | #include <sasl/sasl.h>
+      |          ^~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_f1672.dir/build.make:78: CMakeFiles/cmTC_f1672.dir/HAVE_SASL_SASL_H.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_f1672/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <sasl/sasl.h>
+
+
+int main(void){return 0;}
+
+Determining if the function _aligned_malloc exists failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_4b061/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_4b061.dir/build.make CMakeFiles/cmTC_4b061.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4b061.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -DCHECK_FUNCTION_EXISTS=_aligned_malloc -fPIE -o CMakeFiles/cmTC_4b061.dir/CheckFunctionExists.c.o -c /usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c
+Linking C executable cmTC_4b061
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4b061.dir/link.txt --verbose=1
+/usr/bin/cc -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -DCHECK_FUNCTION_EXISTS=_aligned_malloc -Wl,-z,relro -fuse-ld=lld  CMakeFiles/cmTC_4b061.dir/CheckFunctionExists.c.o -o cmTC_4b061  -lm -ldl -lpthread -lrt 
+ld.lld: error: undefined symbol: _aligned_malloc
+>>> referenced by CheckFunctionExists.c:17 (/usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c:17)
+>>>               CMakeFiles/cmTC_4b061.dir/CheckFunctionExists.c.o:(main)
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_4b061.dir/build.make:99: cmTC_4b061] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_4b061/fast] Error 2
+
+
+
+Determining if the function directio exists failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_1881e/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_1881e.dir/build.make CMakeFiles/cmTC_1881e.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1881e.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -DCHECK_FUNCTION_EXISTS=directio -fPIE -o CMakeFiles/cmTC_1881e.dir/CheckFunctionExists.c.o -c /usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c
+Linking C executable cmTC_1881e
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1881e.dir/link.txt --verbose=1
+/usr/bin/cc -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -DCHECK_FUNCTION_EXISTS=directio -Wl,-z,relro -fuse-ld=lld  CMakeFiles/cmTC_1881e.dir/CheckFunctionExists.c.o -o cmTC_1881e  -lm -ldl -lpthread -lrt 
+ld.lld: error: undefined symbol: directio
+>>> referenced by CheckFunctionExists.c:17 (/usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c:17)
+>>>               CMakeFiles/cmTC_1881e.dir/CheckFunctionExists.c.o:(main)
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_1881e.dir/build.make:99: cmTC_1881e] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_1881e/fast] Error 2
+
+
+
+Determining if the function gethrtime exists failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_ba5be/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_ba5be.dir/build.make CMakeFiles/cmTC_ba5be.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ba5be.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -DCHECK_FUNCTION_EXISTS=gethrtime -fPIE -o CMakeFiles/cmTC_ba5be.dir/CheckFunctionExists.c.o -c /usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c
+Linking C executable cmTC_ba5be
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ba5be.dir/link.txt --verbose=1
+/usr/bin/cc -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -DCHECK_FUNCTION_EXISTS=gethrtime -Wl,-z,relro -fuse-ld=lld  CMakeFiles/cmTC_ba5be.dir/CheckFunctionExists.c.o -o cmTC_ba5be  -lm -ldl -lpthread -lrt 
+ld.lld: error: undefined symbol: gethrtime
+>>> referenced by CheckFunctionExists.c:17 (/usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c:17)
+>>>               CMakeFiles/cmTC_ba5be.dir/CheckFunctionExists.c.o:(main)
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_ba5be.dir/build.make:99: cmTC_ba5be] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_ba5be/fast] Error 2
+
+
+
+Determining if the function getpassphrase exists failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_8219d/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_8219d.dir/build.make CMakeFiles/cmTC_8219d.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8219d.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -DCHECK_FUNCTION_EXISTS=getpassphrase -fPIE -o CMakeFiles/cmTC_8219d.dir/CheckFunctionExists.c.o -c /usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c
+Linking C executable cmTC_8219d
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8219d.dir/link.txt --verbose=1
+/usr/bin/cc -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -DCHECK_FUNCTION_EXISTS=getpassphrase -Wl,-z,relro -fuse-ld=lld  CMakeFiles/cmTC_8219d.dir/CheckFunctionExists.c.o -o cmTC_8219d  -lm -ldl -lpthread -lrt 
+ld.lld: error: undefined symbol: getpassphrase
+>>> referenced by CheckFunctionExists.c:17 (/usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c:17)
+>>>               CMakeFiles/cmTC_8219d.dir/CheckFunctionExists.c.o:(main)
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_8219d.dir/build.make:99: cmTC_8219d] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_8219d/fast] Error 2
+
+
+
+Determining if the function issetugid exists failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_45501/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_45501.dir/build.make CMakeFiles/cmTC_45501.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_45501.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -DCHECK_FUNCTION_EXISTS=issetugid -fPIE -o CMakeFiles/cmTC_45501.dir/CheckFunctionExists.c.o -c /usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c
+Linking C executable cmTC_45501
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_45501.dir/link.txt --verbose=1
+/usr/bin/cc -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -DCHECK_FUNCTION_EXISTS=issetugid -Wl,-z,relro -fuse-ld=lld  CMakeFiles/cmTC_45501.dir/CheckFunctionExists.c.o -o cmTC_45501  -lm -ldl -lpthread -lrt 
+ld.lld: error: undefined symbol: issetugid
+>>> referenced by CheckFunctionExists.c:17 (/usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c:17)
+>>>               CMakeFiles/cmTC_45501.dir/CheckFunctionExists.c.o:(main)
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_45501.dir/build.make:99: cmTC_45501] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_45501/fast] Error 2
+
+
+
+Determining if the function strlcpy exists failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_7703c/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_7703c.dir/build.make CMakeFiles/cmTC_7703c.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7703c.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -DCHECK_FUNCTION_EXISTS=strlcpy -fPIE -o CMakeFiles/cmTC_7703c.dir/CheckFunctionExists.c.o -c /usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c
+Linking C executable cmTC_7703c
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7703c.dir/link.txt --verbose=1
+/usr/bin/cc -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -DCHECK_FUNCTION_EXISTS=strlcpy -Wl,-z,relro -fuse-ld=lld  CMakeFiles/cmTC_7703c.dir/CheckFunctionExists.c.o -o cmTC_7703c  -lm -ldl -lpthread -lrt 
+ld.lld: error: undefined symbol: strlcpy
+>>> referenced by CheckFunctionExists.c:17 (/usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c:17)
+>>>               CMakeFiles/cmTC_7703c.dir/CheckFunctionExists.c.o:(main)
+>>> did you mean: strncpy
+>>> defined in: /lib/aarch64-linux-gnu/libc.so.6
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_7703c.dir/build.make:99: cmTC_7703c] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_7703c/fast] Error 2
+
+
+
+Determining if the function strlcat exists failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_2c92f/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_2c92f.dir/build.make CMakeFiles/cmTC_2c92f.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2c92f.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -DCHECK_FUNCTION_EXISTS=strlcat -fPIE -o CMakeFiles/cmTC_2c92f.dir/CheckFunctionExists.c.o -c /usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c
+Linking C executable cmTC_2c92f
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2c92f.dir/link.txt --verbose=1
+/usr/bin/cc -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -DCHECK_FUNCTION_EXISTS=strlcat -Wl,-z,relro -fuse-ld=lld  CMakeFiles/cmTC_2c92f.dir/CheckFunctionExists.c.o -o cmTC_2c92f  -lm -ldl -lpthread -lrt 
+ld.lld: error: undefined symbol: strlcat
+>>> referenced by CheckFunctionExists.c:17 (/usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c:17)
+>>>               CMakeFiles/cmTC_2c92f.dir/CheckFunctionExists.c.o:(main)
+>>> did you mean: strncat
+>>> defined in: /lib/aarch64-linux-gnu/libc.so.6
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_2c92f.dir/build.make:99: cmTC_2c92f] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_2c92f/fast] Error 2
+
+
+
+Determining if the function tell exists failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_295a8/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_295a8.dir/build.make CMakeFiles/cmTC_295a8.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_295a8.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -DCHECK_FUNCTION_EXISTS=tell -fPIE -o CMakeFiles/cmTC_295a8.dir/CheckFunctionExists.c.o -c /usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c
+Linking C executable cmTC_295a8
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_295a8.dir/link.txt --verbose=1
+/usr/bin/cc -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -DCHECK_FUNCTION_EXISTS=tell -Wl,-z,relro -fuse-ld=lld  CMakeFiles/cmTC_295a8.dir/CheckFunctionExists.c.o -o cmTC_295a8  -lm -ldl -lpthread -lrt 
+ld.lld: error: undefined symbol: tell
+>>> referenced by CheckFunctionExists.c:17 (/usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c:17)
+>>>               CMakeFiles/cmTC_295a8.dir/CheckFunctionExists.c.o:(main)
+>>> did you mean: ftell
+>>> defined in: /lib/aarch64-linux-gnu/libc.so.6
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_295a8.dir/build.make:99: cmTC_295a8] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_295a8/fast] Error 2
+
+
+
+Determining if the function ntohll exists failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_5962a/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_5962a.dir/build.make CMakeFiles/cmTC_5962a.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5962a.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -DCHECK_FUNCTION_EXISTS=ntohll -fPIE -o CMakeFiles/cmTC_5962a.dir/CheckFunctionExists.c.o -c /usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c
+Linking C executable cmTC_5962a
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5962a.dir/link.txt --verbose=1
+/usr/bin/cc -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -DCHECK_FUNCTION_EXISTS=ntohll -Wl,-z,relro -fuse-ld=lld  CMakeFiles/cmTC_5962a.dir/CheckFunctionExists.c.o -o cmTC_5962a  -lm -ldl -lpthread -lrt 
+ld.lld: error: undefined symbol: ntohll
+>>> referenced by CheckFunctionExists.c:17 (/usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c:17)
+>>>               CMakeFiles/cmTC_5962a.dir/CheckFunctionExists.c.o:(main)
+>>> did you mean: ntohl
+>>> defined in: /lib/aarch64-linux-gnu/libc.so.6
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_5962a.dir/build.make:99: cmTC_5962a] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_5962a/fast] Error 2
+
+
+
+Determining if the function memset_s exists failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_22a49/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_22a49.dir/build.make CMakeFiles/cmTC_22a49.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_22a49.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -DCHECK_FUNCTION_EXISTS=memset_s -fPIE -o CMakeFiles/cmTC_22a49.dir/CheckFunctionExists.c.o -c /usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c
+Linking C executable cmTC_22a49
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_22a49.dir/link.txt --verbose=1
+/usr/bin/cc -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -DCHECK_FUNCTION_EXISTS=memset_s -Wl,-z,relro -fuse-ld=lld  CMakeFiles/cmTC_22a49.dir/CheckFunctionExists.c.o -o cmTC_22a49  -lm -ldl -lpthread -lrt 
+ld.lld: error: undefined symbol: memset_s
+>>> referenced by CheckFunctionExists.c:17 (/usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c:17)
+>>>               CMakeFiles/cmTC_22a49.dir/CheckFunctionExists.c.o:(main)
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_22a49.dir/build.make:99: cmTC_22a49] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_22a49/fast] Error 2
+
+
+
+Determining if the FIONREAD exist failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_29b61/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_29b61.dir/build.make CMakeFiles/cmTC_29b61.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_29b61.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics  -fPIE -o CMakeFiles/cmTC_29b61.dir/CheckSymbolExists.c.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:2:10: fatal error: sys/filio.h: No such file or directory
+    2 | #include <sys/filio.h>
+      |          ^~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_29b61.dir/build.make:78: CMakeFiles/cmTC_29b61.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_29b61/fast] Error 2
+
+
+File /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <sys/filio.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef FIONREAD
+  return ((int*)(&FIONREAD))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the function kqueue exists failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_76e2c/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_76e2c.dir/build.make CMakeFiles/cmTC_76e2c.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_76e2c.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -DCHECK_FUNCTION_EXISTS=kqueue -fPIE -o CMakeFiles/cmTC_76e2c.dir/CheckFunctionExists.c.o -c /usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c
+Linking C executable cmTC_76e2c
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_76e2c.dir/link.txt --verbose=1
+/usr/bin/cc -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -DCHECK_FUNCTION_EXISTS=kqueue -Wl,-z,relro -fuse-ld=lld  CMakeFiles/cmTC_76e2c.dir/CheckFunctionExists.c.o -o cmTC_76e2c  -lm -ldl -lpthread -lrt 
+ld.lld: error: undefined symbol: kqueue
+>>> referenced by CheckFunctionExists.c:17 (/usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c:17)
+>>>               CMakeFiles/cmTC_76e2c.dir/CheckFunctionExists.c.o:(main)
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_76e2c.dir/build.make:99: cmTC_76e2c] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_76e2c/fast] Error 2
+
+
+
+Determining if the EVFILT_TIMER exist failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_d736c/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_d736c.dir/build.make CMakeFiles/cmTC_d736c.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d736c.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics  -fPIE -o CMakeFiles/cmTC_d736c.dir/CheckSymbolExists.c.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:3:10: fatal error: sys/event.h: No such file or directory
+    3 | #include <sys/event.h>
+      |          ^~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_d736c.dir/build.make:78: CMakeFiles/cmTC_d736c.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_d736c/fast] Error 2
+
+
+File /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <sys/types.h>
+#include <sys/event.h>
+#include <sys/time.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef EVFILT_TIMER
+  return ((int*)(&EVFILT_TIMER))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C SOURCE FILE Test HAVE_FAKE_PAUSE_INSTRUCTION failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_8f612/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_8f612.dir/build.make CMakeFiles/cmTC_8f612.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8f612.dir/src.c.o
+/usr/bin/cc -DHAVE_FAKE_PAUSE_INSTRUCTION -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics  -fPIE -o CMakeFiles/cmTC_8f612.dir/src.c.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c
+/tmp/ccBad6n7.s: Assembler messages:
+/tmp/ccBad6n7.s:19: Error: unknown mnemonic `rep' -- `rep'
+gmake[1]: *** [CMakeFiles/cmTC_8f612.dir/build.make:78: CMakeFiles/cmTC_8f612.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_8f612/fast] Error 2
+
+
+Source file was:
+
+    int main()
+    {
+     __asm__ __volatile__ ("rep; nop");
+     return 0;
+    }
+   
+Performing C SOURCE FILE Test HAVE_HMT_PRIORITY_INSTRUCTION failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_951e3/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_951e3.dir/build.make CMakeFiles/cmTC_951e3.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_951e3.dir/src.c.o
+/usr/bin/cc -DHAVE_HMT_PRIORITY_INSTRUCTION -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics  -fPIE -o CMakeFiles/cmTC_951e3.dir/src.c.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c
+/tmp/ccOKDN1G.s: Assembler messages:
+/tmp/ccOKDN1G.s:19: Error: unknown mnemonic `or' -- `or 1,1,1'
+/tmp/ccOKDN1G.s:23: Error: unknown mnemonic `or' -- `or 2,2,2'
+gmake[1]: *** [CMakeFiles/cmTC_951e3.dir/build.make:78: CMakeFiles/cmTC_951e3.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_951e3/fast] Error 2
+
+
+Source file was:
+
+    int main()
+    {
+     __asm__ __volatile__ ("or 1,1,1");
+     __asm__ __volatile__ ("or 2,2,2");
+     return 0;
+    }
+    
+Performing C SOURCE FILE Test HAVE_PTHREAD_GETTHREADID_NP failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_edccd/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_edccd.dir/build.make CMakeFiles/cmTC_edccd.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_edccd.dir/src.c.o
+/usr/bin/cc -DHAVE_PTHREAD_GETTHREADID_NP -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics  -fPIE -o CMakeFiles/cmTC_edccd.dir/src.c.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c:2:10: fatal error: pthread_np.h: No such file or directory
+    2 | #include <pthread_np.h>
+      |          ^~~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_edccd.dir/build.make:78: CMakeFiles/cmTC_edccd.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_edccd/fast] Error 2
+
+
+Source file was:
+
+#include <pthread_np.h>
+int main(int ac, char **av)
+{
+  unsigned long long tid = pthread_getthreadid_np();
+  return (tid != 0 ? 0 : 1);
+}
+Performing C SOURCE FILE Test HAVE_PTHREAD_THREADID_NP failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_03018/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_03018.dir/build.make CMakeFiles/cmTC_03018.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_03018.dir/src.c.o
+/usr/bin/cc -DHAVE_PTHREAD_THREADID_NP -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics  -fPIE -o CMakeFiles/cmTC_03018.dir/src.c.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c:6:3: warning: implicit declaration of function 'pthread_threadid_np'; did you mean 'pthread_tryjoin_np'? [-Wimplicit-function-declaration]
+    6 |   pthread_threadid_np(NULL, &tid64);
+      |   ^~~~~~~~~~~~~~~~~~~
+      |   pthread_tryjoin_np
+Linking C executable cmTC_03018
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_03018.dir/link.txt --verbose=1
+/usr/bin/cc -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics  -Wl,-z,relro -fuse-ld=lld  CMakeFiles/cmTC_03018.dir/src.c.o -o cmTC_03018  -lm -ldl -lpthread -lrt 
+ld.lld: error: undefined symbol: pthread_threadid_np
+>>> referenced by src.c:6 (./build/CMakeFiles/CMakeTmp/src.c:6)
+>>>               CMakeFiles/cmTC_03018.dir/src.c.o:(main)
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_03018.dir/build.make:99: cmTC_03018] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_03018/fast] Error 2
+
+
+Source file was:
+
+#include <pthread.h>
+int main(int ac, char **av)
+{
+  unsigned long long tid64;
+  pthread_threadid_np(NULL, &tid64);
+  return (tid64 != 0 ? 0 : 1);
+}
+Performing C SOURCE FILE Test HAVE_PTHREAD_SETNAME_NP_MACOS failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_f6dc6/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_f6dc6.dir/build.make CMakeFiles/cmTC_f6dc6.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f6dc6.dir/src.c.o
+/usr/bin/cc -DHAVE_PTHREAD_SETNAME_NP_MACOS -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics  -fPIE -o CMakeFiles/cmTC_f6dc6.dir/src.c.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c:6:29: warning: passing argument 1 of 'pthread_setname_np' makes integer from pointer without a cast [-Wint-conversion]
+    6 |   return pthread_setname_np(name);
+      |                             ^~~~
+      |                             |
+      |                             char *
+In file included from /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c:2:
+/usr/include/pthread.h:427:42: note: expected 'pthread_t' {aka 'long unsigned int'} but argument is of type 'char *'
+  427 | extern int pthread_setname_np (pthread_t __target_thread, const char *__name)
+      |                                ~~~~~~~~~~^~~~~~~~~~~~~~~
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c:6:10: error: too few arguments to function 'pthread_setname_np'
+    6 |   return pthread_setname_np(name);
+      |          ^~~~~~~~~~~~~~~~~~
+/usr/include/pthread.h:427:12: note: declared here
+  427 | extern int pthread_setname_np (pthread_t __target_thread, const char *__name)
+      |            ^~~~~~~~~~~~~~~~~~
+gmake[1]: *** [CMakeFiles/cmTC_f6dc6.dir/build.make:78: CMakeFiles/cmTC_f6dc6.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_f6dc6/fast] Error 2
+
+
+Source file was:
+
+#include <pthread.h>
+int main(int argc, char **argv)
+{
+  char name[16] = {0};
+  return pthread_setname_np(name);
+}
+Determining if the include file netinet/in6.h exists failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_a0bcf/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_a0bcf.dir/build.make CMakeFiles/cmTC_a0bcf.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a0bcf.dir/CheckIncludeFile.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics  -fPIE -o CMakeFiles/cmTC_a0bcf.dir/CheckIncludeFile.c.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: netinet/in6.h: No such file or directory
+    1 | #include <netinet/in6.h>
+      |          ^~~~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_a0bcf.dir/build.make:78: CMakeFiles/cmTC_a0bcf.dir/CheckIncludeFile.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_a0bcf/fast] Error 2
+
+
+
+Determining size of struct in6_addr failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_44d5f/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_44d5f.dir/build.make CMakeFiles/cmTC_44d5f.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_44d5f.dir/SIZEOF_IN6_ADDR.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics  -fPIE -o CMakeFiles/cmTC_44d5f.dir/SIZEOF_IN6_ADDR.c.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CheckTypeSize/SIZEOF_IN6_ADDR.c
+/mnt/percona-xtrabackup/build/CMakeFiles/CheckTypeSize/SIZEOF_IN6_ADDR.c:31:22: error: invalid application of 'sizeof' to incomplete type 'struct in6_addr'
+   31 | #define SIZE (sizeof(struct in6_addr))
+      |                      ^~~~~~
+/mnt/percona-xtrabackup/build/CMakeFiles/CheckTypeSize/SIZEOF_IN6_ADDR.c:33:12: note: in expansion of macro 'SIZE'
+   33 |   ('0' + ((SIZE / 10000)%10)),
+      |            ^~~~
+/mnt/percona-xtrabackup/build/CMakeFiles/CheckTypeSize/SIZEOF_IN6_ADDR.c:31:22: error: invalid application of 'sizeof' to incomplete type 'struct in6_addr'
+   31 | #define SIZE (sizeof(struct in6_addr))
+      |                      ^~~~~~
+/mnt/percona-xtrabackup/build/CMakeFiles/CheckTypeSize/SIZEOF_IN6_ADDR.c:34:12: note: in expansion of macro 'SIZE'
+   34 |   ('0' + ((SIZE / 1000)%10)),
+      |            ^~~~
+/mnt/percona-xtrabackup/build/CMakeFiles/CheckTypeSize/SIZEOF_IN6_ADDR.c:31:22: error: invalid application of 'sizeof' to incomplete type 'struct in6_addr'
+   31 | #define SIZE (sizeof(struct in6_addr))
+      |                      ^~~~~~
+/mnt/percona-xtrabackup/build/CMakeFiles/CheckTypeSize/SIZEOF_IN6_ADDR.c:35:12: note: in expansion of macro 'SIZE'
+   35 |   ('0' + ((SIZE / 100)%10)),
+      |            ^~~~
+/mnt/percona-xtrabackup/build/CMakeFiles/CheckTypeSize/SIZEOF_IN6_ADDR.c:31:22: error: invalid application of 'sizeof' to incomplete type 'struct in6_addr'
+   31 | #define SIZE (sizeof(struct in6_addr))
+      |                      ^~~~~~
+/mnt/percona-xtrabackup/build/CMakeFiles/CheckTypeSize/SIZEOF_IN6_ADDR.c:36:12: note: in expansion of macro 'SIZE'
+   36 |   ('0' + ((SIZE / 10)%10)),
+      |            ^~~~
+/mnt/percona-xtrabackup/build/CMakeFiles/CheckTypeSize/SIZEOF_IN6_ADDR.c:31:22: error: invalid application of 'sizeof' to incomplete type 'struct in6_addr'
+   31 | #define SIZE (sizeof(struct in6_addr))
+      |                      ^~~~~~
+/mnt/percona-xtrabackup/build/CMakeFiles/CheckTypeSize/SIZEOF_IN6_ADDR.c:37:12: note: in expansion of macro 'SIZE'
+   37 |   ('0' +  (SIZE    % 10)),
+      |            ^~~~
+gmake[1]: *** [CMakeFiles/cmTC_44d5f.dir/build.make:78: CMakeFiles/cmTC_44d5f.dir/SIZEOF_IN6_ADDR.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_44d5f/fast] Error 2
+
+
+/mnt/percona-xtrabackup/build/CMakeFiles/CheckTypeSize/SIZEOF_IN6_ADDR.c:
+#include <sys/types.h>
+#include <stdint.h>
+#include <stddef.h>
+#include "stdint.h"
+#include "stdio.h"
+#include "sys/types.h"
+#include "time.h"
+
+
+#undef KEY
+#if defined(__i386)
+# define KEY '_','_','i','3','8','6'
+#elif defined(__x86_64)
+# define KEY '_','_','x','8','6','_','6','4'
+#elif defined(__PPC64__)
+# define KEY '_','_','P','P','C','6','4','_','_'
+#elif defined(__ppc64__)
+# define KEY '_','_','p','p','c','6','4','_','_'
+#elif defined(__PPC__)
+# define KEY '_','_','P','P','C','_','_'
+#elif defined(__ppc__)
+# define KEY '_','_','p','p','c','_','_'
+#elif defined(__aarch64__)
+# define KEY '_','_','a','a','r','c','h','6','4','_','_'
+#elif defined(__ARM_ARCH_7A__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','A','_','_'
+#elif defined(__ARM_ARCH_7S__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','S','_','_'
+#endif
+
+#define SIZE (sizeof(struct in6_addr))
+static char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+  ('0' + ((SIZE / 10000)%10)),
+  ('0' + ((SIZE / 1000)%10)),
+  ('0' + ((SIZE / 100)%10)),
+  ('0' + ((SIZE / 10)%10)),
+  ('0' +  (SIZE    % 10)),
+  ']',
+#ifdef KEY
+  ' ','k','e','y','[', KEY, ']',
+#endif
+  '\0'};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_size[argc];
+  (void)argv;
+  return require;
+}
+
+
+Performing C SOURCE FILE Test HAVE_SOCKADDR_IN_SIN_LEN failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_ad9d8/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_ad9d8.dir/build.make CMakeFiles/cmTC_ad9d8.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ad9d8.dir/src.c.o
+/usr/bin/cc -DHAVE_SOCKADDR_IN_SIN_LEN -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics  -fPIE -o CMakeFiles/cmTC_ad9d8.dir/src.c.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c:8:41: error: 'struct sockaddr_in' has no member named 'sin_len'
+    8 |   (void)sizeof(((struct sockaddr_in *)0)->sin_len);
+      |                                         ^~
+gmake[1]: *** [CMakeFiles/cmTC_ad9d8.dir/build.make:78: CMakeFiles/cmTC_ad9d8.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_ad9d8/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <netinet/in.h>
+#include <sys/socket.h>
+
+int main()
+{
+  (void)sizeof(((struct sockaddr_in *)0)->sin_len);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_SOCKADDR_IN6_SIN6_LEN failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_feafd/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_feafd.dir/build.make CMakeFiles/cmTC_feafd.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_feafd.dir/src.c.o
+/usr/bin/cc -DHAVE_SOCKADDR_IN6_SIN6_LEN -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics  -fPIE -o CMakeFiles/cmTC_feafd.dir/src.c.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c:8:42: error: 'struct sockaddr_in6' has no member named 'sin6_len'
+    8 |   (void)sizeof(((struct sockaddr_in6 *)0)->sin6_len);
+      |                                          ^~
+gmake[1]: *** [CMakeFiles/cmTC_feafd.dir/build.make:78: CMakeFiles/cmTC_feafd.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_feafd/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <netinet/in.h>
+#include <sys/socket.h>
+
+int main()
+{
+  (void)sizeof(((struct sockaddr_in6 *)0)->sin6_len);
+  return 0;
+}
+
+Determining if files numa.h exist failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_a0278/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_a0278.dir/build.make CMakeFiles/cmTC_a0278.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a0278.dir/HAVE_NUMA_H.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics  -fPIE -o CMakeFiles/cmTC_a0278.dir/HAVE_NUMA_H.c.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CheckIncludeFiles/HAVE_NUMA_H.c
+/mnt/percona-xtrabackup/build/CMakeFiles/CheckIncludeFiles/HAVE_NUMA_H.c:2:10: fatal error: numa.h: No such file or directory
+    2 | #include <numa.h>
+      |          ^~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_a0278.dir/build.make:78: CMakeFiles/cmTC_a0278.dir/HAVE_NUMA_H.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_a0278/fast] Error 2
+
+
+Source:
+/* */
+#include <numa.h>
+
+
+int main(void){return 0;}
+
+Determining if files numaif.h exist failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_44e23/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_44e23.dir/build.make CMakeFiles/cmTC_44e23.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_44e23.dir/HAVE_NUMAIF_H.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics  -fPIE -o CMakeFiles/cmTC_44e23.dir/HAVE_NUMAIF_H.c.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CheckIncludeFiles/HAVE_NUMAIF_H.c
+/mnt/percona-xtrabackup/build/CMakeFiles/CheckIncludeFiles/HAVE_NUMAIF_H.c:2:10: fatal error: numaif.h: No such file or directory
+    2 | #include <numaif.h>
+      |          ^~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_44e23.dir/build.make:78: CMakeFiles/cmTC_44e23.dir/HAVE_NUMAIF_H.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_44e23/fast] Error 2
+
+
+Source:
+/* */
+#include <numaif.h>
+
+
+int main(void){return 0;}
+
+Performing C++ SOURCE FILE Test HAVE_ARMV8_CRC32 failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_5f221/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_5f221.dir/build.make CMakeFiles/cmTC_5f221.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_5f221.dir/src.cxx.o
+/usr/local/bin/c++ -DHAVE_ARMV8_CRC32 -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -std=c++17 -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics  -fPIE -o CMakeFiles/cmTC_5f221.dir/src.cxx.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.cxx
+In file included from /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.cxx:2:
+/usr/local/lib/gcc/aarch64-linux-gnu/12.2.0/include/arm_acle.h: In function 'int main()':
+/usr/local/lib/gcc/aarch64-linux-gnu/12.2.0/include/arm_acle.h:218:1: error: inlining failed in call to 'always_inline' 'uint32_t __crc32d(uint32_t, uint64_t)': target specific option mismatch
+  218 | __crc32d (uint32_t __a, uint64_t __b)
+      | ^~~~~~~~
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.cxx:5:65: note: called from here
+    5 |         __crc32b(0, 0); __crc32h(0, 0); __crc32w(0, 0); __crc32d(0, 0);
+      |                                                         ~~~~~~~~^~~~~~
+/usr/local/lib/gcc/aarch64-linux-gnu/12.2.0/include/arm_acle.h:211:1: error: inlining failed in call to 'always_inline' 'uint32_t __crc32w(uint32_t, uint32_t)': target specific option mismatch
+  211 | __crc32w (uint32_t __a, uint32_t __b)
+      | ^~~~~~~~
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.cxx:5:49: note: called from here
+    5 |         __crc32b(0, 0); __crc32h(0, 0); __crc32w(0, 0); __crc32d(0, 0);
+      |                                         ~~~~~~~~^~~~~~
+/usr/local/lib/gcc/aarch64-linux-gnu/12.2.0/include/arm_acle.h:204:1: error: inlining failed in call to 'always_inline' 'uint32_t __crc32h(uint32_t, uint16_t)': target specific option mismatch
+  204 | __crc32h (uint32_t __a, uint16_t __b)
+      | ^~~~~~~~
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.cxx:5:33: note: called from here
+    5 |         __crc32b(0, 0); __crc32h(0, 0); __crc32w(0, 0); __crc32d(0, 0);
+      |                         ~~~~~~~~^~~~~~
+/usr/local/lib/gcc/aarch64-linux-gnu/12.2.0/include/arm_acle.h:169:1: error: inlining failed in call to 'always_inline' 'uint32_t __crc32b(uint32_t, uint8_t)': target specific option mismatch
+  169 | __crc32b (uint32_t __a, uint8_t __b)
+      | ^~~~~~~~
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.cxx:5:17: note: called from here
+    5 |         __crc32b(0, 0); __crc32h(0, 0); __crc32w(0, 0); __crc32d(0, 0);
+      |         ~~~~~~~~^~~~~~
+/usr/local/lib/gcc/aarch64-linux-gnu/12.2.0/include/arm_acle.h:197:1: error: inlining failed in call to 'always_inline' 'uint32_t __crc32cd(uint32_t, uint64_t)': target specific option mismatch
+  197 | __crc32cd (uint32_t __a, uint64_t __b)
+      | ^~~~~~~~~
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.cxx:4:69: note: called from here
+    4 |         __crc32cb(0, 0); __crc32ch(0, 0); __crc32cw(0, 0); __crc32cd(0, 0);
+      |                                                            ~~~~~~~~~^~~~~~
+/usr/local/lib/gcc/aarch64-linux-gnu/12.2.0/include/arm_acle.h:190:1: error: inlining failed in call to 'always_inline' 'uint32_t __crc32cw(uint32_t, uint32_t)': target specific option mismatch
+  190 | __crc32cw (uint32_t __a, uint32_t __b)
+      | ^~~~~~~~~
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.cxx:4:52: note: called from here
+    4 |         __crc32cb(0, 0); __crc32ch(0, 0); __crc32cw(0, 0); __crc32cd(0, 0);
+      |                                           ~~~~~~~~~^~~~~~
+/usr/local/lib/gcc/aarch64-linux-gnu/12.2.0/include/arm_acle.h:183:1: error: inlining failed in call to 'always_inline' 'uint32_t __crc32ch(uint32_t, uint16_t)': target specific option mismatch
+  183 | __crc32ch (uint32_t __a, uint16_t __b)
+      | ^~~~~~~~~
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.cxx:4:35: note: called from here
+    4 |         __crc32cb(0, 0); __crc32ch(0, 0); __crc32cw(0, 0); __crc32cd(0, 0);
+      |                          ~~~~~~~~~^~~~~~
+/usr/local/lib/gcc/aarch64-linux-gnu/12.2.0/include/arm_acle.h:176:1: error: inlining failed in call to 'always_inline' 'uint32_t __crc32cb(uint32_t, uint8_t)': target specific option mismatch
+  176 | __crc32cb (uint32_t __a, uint8_t __b)
+      | ^~~~~~~~~
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.cxx:4:18: note: called from here
+    4 |         __crc32cb(0, 0); __crc32ch(0, 0); __crc32cw(0, 0); __crc32cd(0, 0);
+      |         ~~~~~~~~~^~~~~~
+gmake[1]: *** [CMakeFiles/cmTC_5f221.dir/build.make:78: CMakeFiles/cmTC_5f221.dir/src.cxx.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_5f221/fast] Error 2
+
+
+Source file was:
+
+      #include <arm_acle.h>
+      int main() {
+        __crc32cb(0, 0); __crc32ch(0, 0); __crc32cw(0, 0); __crc32cd(0, 0);
+        __crc32b(0, 0); __crc32h(0, 0); __crc32w(0, 0); __crc32d(0, 0);
+        return 0;
+      }
+Performing C++ SOURCE FILE Test HAVE_CXX_W_deprecated_non_prototype failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_fbad6/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_fbad6.dir/build.make CMakeFiles/cmTC_fbad6.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_fbad6.dir/src.cxx.o
+/usr/local/bin/c++ -DHAVE_CXX_W_deprecated_non_prototype  -std=c++17 -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -march=armv8-a+crc  -Wdeprecated-non-prototype -fPIE -o CMakeFiles/cmTC_fbad6.dir/src.cxx.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command-line option '-Wdeprecated-non-prototype'
+gmake[1]: *** [CMakeFiles/cmTC_fbad6.dir/build.make:78: CMakeFiles/cmTC_fbad6.dir/src.cxx.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_fbad6/fast] Error 2
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C++ SOURCE FILE Test HAVE_CXX_W_documentation failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_47604/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_47604.dir/build.make CMakeFiles/cmTC_47604.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_47604.dir/src.cxx.o
+/usr/local/bin/c++ -DHAVE_CXX_W_documentation -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -std=c++17 -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -march=armv8-a+crc  -Wdocumentation -fPIE -o CMakeFiles/cmTC_47604.dir/src.cxx.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command-line option '-Wdocumentation'
+gmake[1]: *** [CMakeFiles/cmTC_47604.dir/build.make:78: CMakeFiles/cmTC_47604.dir/src.cxx.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_47604/fast] Error 2
+
+
+Source file was:
+int main(void) { return 0; }
+Determining if the include file lber.h exists failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_d20b3/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_d20b3.dir/build.make CMakeFiles/cmTC_d20b3.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d20b3.dir/CheckIncludeFile.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics  -fPIE -o CMakeFiles/cmTC_d20b3.dir/CheckIncludeFile.c.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: lber.h: No such file or directory
+    1 | #include <lber.h>
+      |          ^~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_d20b3.dir/build.make:78: CMakeFiles/cmTC_d20b3.dir/CheckIncludeFile.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_d20b3/fast] Error 2
+
+
+
+Determining if the include file ldap.h exists failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_b6106/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_b6106.dir/build.make CMakeFiles/cmTC_b6106.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b6106.dir/CheckIncludeFile.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics  -fPIE -o CMakeFiles/cmTC_b6106.dir/CheckIncludeFile.c.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: ldap.h: No such file or directory
+    1 | #include <ldap.h>
+      |          ^~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_b6106.dir/build.make:78: CMakeFiles/cmTC_b6106.dir/CheckIncludeFile.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_b6106/fast] Error 2
+
+
+
+Performing C SOURCE FILE Test HAVE_GETPW_R_DRAFT failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_abeea/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_abeea.dir/build.make CMakeFiles/cmTC_abeea.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_abeea.dir/src.c.o
+/usr/bin/cc -DHAVE_GETPW_R_DRAFT -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics  -fPIE -o CMakeFiles/cmTC_abeea.dir/src.c.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c:6:26: error: too few arguments to function 'getpwnam_r'
+    6 |     struct passwd *pwd = getpwnam_r(NULL, NULL, NULL, 0);
+      |                          ^~~~~~~~~~
+In file included from /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c:4:
+/usr/include/pwd.h:151:12: note: declared here
+  151 | extern int getpwnam_r (const char *__restrict __name,
+      |            ^~~~~~~~~~
+gmake[1]: *** [CMakeFiles/cmTC_abeea.dir/build.make:78: CMakeFiles/cmTC_abeea.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_abeea/fast] Error 2
+
+
+Source file was:
+
+  #include <stdlib.h>
+  #include <sys/types.h>
+  #include <pwd.h>
+  int main() {
+    struct passwd *pwd = getpwnam_r(NULL, NULL, NULL, 0);
+    return pwd != NULL;
+  }
+Determining if the function vis exists failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_a4c38/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_a4c38.dir/build.make CMakeFiles/cmTC_a4c38.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a4c38.dir/CheckFunctionExists.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -DCHECK_FUNCTION_EXISTS=vis -fPIE -o CMakeFiles/cmTC_a4c38.dir/CheckFunctionExists.c.o -c /usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c
+Linking C executable cmTC_a4c38
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a4c38.dir/link.txt --verbose=1
+/usr/bin/cc -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -DCHECK_FUNCTION_EXISTS=vis -Wl,-z,relro -fuse-ld=lld  CMakeFiles/cmTC_a4c38.dir/CheckFunctionExists.c.o -o cmTC_a4c38  -lm -ldl -lpthread -lrt 
+ld.lld: error: undefined symbol: vis
+>>> referenced by CheckFunctionExists.c:17 (/usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c:17)
+>>>               CMakeFiles/cmTC_a4c38.dir/CheckFunctionExists.c.o:(main)
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_a4c38.dir/build.make:99: cmTC_a4c38] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_a4c38/fast] Error 2
+
+
+
+Determining if the function unvis exists failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_257f2/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_257f2.dir/build.make CMakeFiles/cmTC_257f2.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_257f2.dir/CheckFunctionExists.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -DCHECK_FUNCTION_EXISTS=unvis -fPIE -o CMakeFiles/cmTC_257f2.dir/CheckFunctionExists.c.o -c /usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c
+Linking C executable cmTC_257f2
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_257f2.dir/link.txt --verbose=1
+/usr/bin/cc -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -DCHECK_FUNCTION_EXISTS=unvis -Wl,-z,relro -fuse-ld=lld  CMakeFiles/cmTC_257f2.dir/CheckFunctionExists.c.o -o cmTC_257f2  -lm -ldl -lpthread -lrt 
+ld.lld: error: undefined symbol: unvis
+>>> referenced by CheckFunctionExists.c:17 (/usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c:17)
+>>>               CMakeFiles/cmTC_257f2.dir/CheckFunctionExists.c.o:(main)
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_257f2.dir/build.make:99: cmTC_257f2] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_257f2/fast] Error 2
+
+
+
+Determining if the function __secure_getenv exists failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_1d501/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_1d501.dir/build.make CMakeFiles/cmTC_1d501.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1d501.dir/CheckFunctionExists.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -DCHECK_FUNCTION_EXISTS=__secure_getenv -fPIE -o CMakeFiles/cmTC_1d501.dir/CheckFunctionExists.c.o -c /usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c
+Linking C executable cmTC_1d501
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1d501.dir/link.txt --verbose=1
+/usr/bin/cc -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -DCHECK_FUNCTION_EXISTS=__secure_getenv -Wl,-z,relro -fuse-ld=lld  CMakeFiles/cmTC_1d501.dir/CheckFunctionExists.c.o -o cmTC_1d501  -lm -ldl -lpthread -lrt 
+ld.lld: error: undefined symbol: __secure_getenv
+>>> referenced by CheckFunctionExists.c:17 (/usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c:17)
+>>>               CMakeFiles/cmTC_1d501.dir/CheckFunctionExists.c.o:(main)
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_1d501.dir/build.make:99: cmTC_1d501] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_1d501/fast] Error 2
+
+
+
+Determining if the include file netinet/in6.h exists failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_3462f/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_3462f.dir/build.make CMakeFiles/cmTC_3462f.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3462f.dir/CheckIncludeFile.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wno-dangling-pointer -Wno-missing-profile -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings  -fPIE -o CMakeFiles/cmTC_3462f.dir/CheckIncludeFile.c.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: netinet/in6.h: No such file or directory
+    1 | #include <netinet/in6.h>
+      |          ^~~~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_3462f.dir/build.make:78: CMakeFiles/cmTC_3462f.dir/CheckIncludeFile.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_3462f/fast] Error 2
+
+
+
+Determining if the include file port.h exists failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_4ea70/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_4ea70.dir/build.make CMakeFiles/cmTC_4ea70.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4ea70.dir/CheckIncludeFile.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wno-dangling-pointer -Wno-missing-profile -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings  -fPIE -o CMakeFiles/cmTC_4ea70.dir/CheckIncludeFile.c.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: port.h: No such file or directory
+    1 | #include <port.h>
+      |          ^~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_4ea70.dir/build.make:78: CMakeFiles/cmTC_4ea70.dir/CheckIncludeFile.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_4ea70/fast] Error 2
+
+
+
+Determining if the include file sys/devpoll.h exists failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_56efa/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_56efa.dir/build.make CMakeFiles/cmTC_56efa.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_56efa.dir/CheckIncludeFile.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wno-dangling-pointer -Wno-missing-profile -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings  -fPIE -o CMakeFiles/cmTC_56efa.dir/CheckIncludeFile.c.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: sys/devpoll.h: No such file or directory
+    1 | #include <sys/devpoll.h>
+      |          ^~~~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_56efa.dir/build.make:78: CMakeFiles/cmTC_56efa.dir/CheckIncludeFile.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_56efa/fast] Error 2
+
+
+
+Determining if the include file sys/event.h exists failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_4b03a/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_4b03a.dir/build.make CMakeFiles/cmTC_4b03a.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4b03a.dir/CheckIncludeFile.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wno-dangling-pointer -Wno-missing-profile -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings  -fPIE -o CMakeFiles/cmTC_4b03a.dir/CheckIncludeFile.c.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: sys/event.h: No such file or directory
+    1 | #include <sys/event.h>
+      |          ^~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_4b03a.dir/build.make:78: CMakeFiles/cmTC_4b03a.dir/CheckIncludeFile.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_4b03a/fast] Error 2
+
+
+
+Determining if the include file mach/mach_time.h exists failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_0ad09/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_0ad09.dir/build.make CMakeFiles/cmTC_0ad09.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0ad09.dir/CheckIncludeFile.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wno-dangling-pointer -Wno-missing-profile -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings  -fPIE -o CMakeFiles/cmTC_0ad09.dir/CheckIncludeFile.c.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: mach/mach_time.h: No such file or directory
+    1 | #include <mach/mach_time.h>
+      |          ^~~~~~~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_0ad09.dir/build.make:78: CMakeFiles/cmTC_0ad09.dir/CheckIncludeFile.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_0ad09/fast] Error 2
+
+
+
+Determining if the function kqueue exists failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_a9430/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_a9430.dir/build.make CMakeFiles/cmTC_a9430.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a9430.dir/CheckFunctionExistsEx.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wno-dangling-pointer -Wno-missing-profile -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings -DCHECK_FUNCTION_EXISTS=kqueue -fPIE -o CMakeFiles/cmTC_a9430.dir/CheckFunctionExistsEx.c.o -c /mnt/percona-xtrabackup/extra/libevent/libevent-2.1.11-stable/cmake/CheckFunctionExistsEx.c
+Linking C executable cmTC_a9430
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a9430.dir/link.txt --verbose=1
+/usr/bin/cc -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wno-dangling-pointer -Wno-missing-profile -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings -DCHECK_FUNCTION_EXISTS=kqueue -Wl,-z,relro -fuse-ld=lld  CMakeFiles/cmTC_a9430.dir/CheckFunctionExistsEx.c.o -o cmTC_a9430  -lm -ldl -lpthread -lrt 
+ld.lld: error: undefined symbol: kqueue
+>>> referenced by CheckFunctionExistsEx.c:17 (./extra/libevent/libevent-2.1.11-stable/cmake/CheckFunctionExistsEx.c:17)
+>>>               CMakeFiles/cmTC_a9430.dir/CheckFunctionExistsEx.c.o:(main)
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_a9430.dir/build.make:99: cmTC_a9430] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_a9430/fast] Error 2
+
+
+
+Determining if the function port_create exists failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_c166d/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_c166d.dir/build.make CMakeFiles/cmTC_c166d.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c166d.dir/CheckFunctionExistsEx.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wno-dangling-pointer -Wno-missing-profile -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings -DCHECK_FUNCTION_EXISTS=port_create -fPIE -o CMakeFiles/cmTC_c166d.dir/CheckFunctionExistsEx.c.o -c /mnt/percona-xtrabackup/extra/libevent/libevent-2.1.11-stable/cmake/CheckFunctionExistsEx.c
+Linking C executable cmTC_c166d
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c166d.dir/link.txt --verbose=1
+/usr/bin/cc -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wno-dangling-pointer -Wno-missing-profile -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings -DCHECK_FUNCTION_EXISTS=port_create -Wl,-z,relro -fuse-ld=lld  CMakeFiles/cmTC_c166d.dir/CheckFunctionExistsEx.c.o -o cmTC_c166d  -lm -ldl -lpthread -lrt 
+ld.lld: error: undefined symbol: port_create
+>>> referenced by CheckFunctionExistsEx.c:17 (./extra/libevent/libevent-2.1.11-stable/cmake/CheckFunctionExistsEx.c:17)
+>>>               CMakeFiles/cmTC_c166d.dir/CheckFunctionExistsEx.c.o:(main)
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_c166d.dir/build.make:99: cmTC_c166d] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_c166d/fast] Error 2
+
+
+
+Determining if the function strlcpy exists failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_8f0f5/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_8f0f5.dir/build.make CMakeFiles/cmTC_8f0f5.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8f0f5.dir/CheckFunctionExistsEx.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wno-dangling-pointer -Wno-missing-profile -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings -DCHECK_FUNCTION_EXISTS=strlcpy -fPIE -o CMakeFiles/cmTC_8f0f5.dir/CheckFunctionExistsEx.c.o -c /mnt/percona-xtrabackup/extra/libevent/libevent-2.1.11-stable/cmake/CheckFunctionExistsEx.c
+Linking C executable cmTC_8f0f5
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8f0f5.dir/link.txt --verbose=1
+/usr/bin/cc -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wno-dangling-pointer -Wno-missing-profile -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings -DCHECK_FUNCTION_EXISTS=strlcpy -Wl,-z,relro -fuse-ld=lld  CMakeFiles/cmTC_8f0f5.dir/CheckFunctionExistsEx.c.o -o cmTC_8f0f5  -lm -ldl -lpthread -lrt 
+ld.lld: error: undefined symbol: strlcpy
+>>> referenced by CheckFunctionExistsEx.c:17 (./extra/libevent/libevent-2.1.11-stable/cmake/CheckFunctionExistsEx.c:17)
+>>>               CMakeFiles/cmTC_8f0f5.dir/CheckFunctionExistsEx.c.o:(main)
+>>> did you mean: strncpy
+>>> defined in: /lib/aarch64-linux-gnu/libc.so.6
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_8f0f5.dir/build.make:99: cmTC_8f0f5] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_8f0f5/fast] Error 2
+
+
+
+Determining if the function arc4random exists failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_cd445/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_cd445.dir/build.make CMakeFiles/cmTC_cd445.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_cd445.dir/CheckFunctionExistsEx.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wno-dangling-pointer -Wno-missing-profile -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings -DCHECK_FUNCTION_EXISTS=arc4random -fPIE -o CMakeFiles/cmTC_cd445.dir/CheckFunctionExistsEx.c.o -c /mnt/percona-xtrabackup/extra/libevent/libevent-2.1.11-stable/cmake/CheckFunctionExistsEx.c
+Linking C executable cmTC_cd445
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cd445.dir/link.txt --verbose=1
+/usr/bin/cc -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wno-dangling-pointer -Wno-missing-profile -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings -DCHECK_FUNCTION_EXISTS=arc4random -Wl,-z,relro -fuse-ld=lld  CMakeFiles/cmTC_cd445.dir/CheckFunctionExistsEx.c.o -o cmTC_cd445  -lm -ldl -lpthread -lrt 
+ld.lld: error: undefined symbol: arc4random
+>>> referenced by CheckFunctionExistsEx.c:17 (./extra/libevent/libevent-2.1.11-stable/cmake/CheckFunctionExistsEx.c:17)
+>>>               CMakeFiles/cmTC_cd445.dir/CheckFunctionExistsEx.c.o:(main)
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_cd445.dir/build.make:99: cmTC_cd445] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_cd445/fast] Error 2
+
+
+
+Determining if the function arc4random_buf exists failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_12bda/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_12bda.dir/build.make CMakeFiles/cmTC_12bda.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_12bda.dir/CheckFunctionExistsEx.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wno-dangling-pointer -Wno-missing-profile -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings -DCHECK_FUNCTION_EXISTS=arc4random_buf -fPIE -o CMakeFiles/cmTC_12bda.dir/CheckFunctionExistsEx.c.o -c /mnt/percona-xtrabackup/extra/libevent/libevent-2.1.11-stable/cmake/CheckFunctionExistsEx.c
+Linking C executable cmTC_12bda
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_12bda.dir/link.txt --verbose=1
+/usr/bin/cc -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wno-dangling-pointer -Wno-missing-profile -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings -DCHECK_FUNCTION_EXISTS=arc4random_buf -Wl,-z,relro -fuse-ld=lld  CMakeFiles/cmTC_12bda.dir/CheckFunctionExistsEx.c.o -o cmTC_12bda  -lm -ldl -lpthread -lrt 
+ld.lld: error: undefined symbol: arc4random_buf
+>>> referenced by CheckFunctionExistsEx.c:17 (./extra/libevent/libevent-2.1.11-stable/cmake/CheckFunctionExistsEx.c:17)
+>>>               CMakeFiles/cmTC_12bda.dir/CheckFunctionExistsEx.c.o:(main)
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_12bda.dir/build.make:99: cmTC_12bda] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_12bda/fast] Error 2
+
+
+
+Determining if the function issetugid exists failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_5a30e/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_5a30e.dir/build.make CMakeFiles/cmTC_5a30e.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5a30e.dir/CheckFunctionExistsEx.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wno-dangling-pointer -Wno-missing-profile -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings -DCHECK_FUNCTION_EXISTS=issetugid -fPIE -o CMakeFiles/cmTC_5a30e.dir/CheckFunctionExistsEx.c.o -c /mnt/percona-xtrabackup/extra/libevent/libevent-2.1.11-stable/cmake/CheckFunctionExistsEx.c
+Linking C executable cmTC_5a30e
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5a30e.dir/link.txt --verbose=1
+/usr/bin/cc -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wno-dangling-pointer -Wno-missing-profile -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings -DCHECK_FUNCTION_EXISTS=issetugid -Wl,-z,relro -fuse-ld=lld  CMakeFiles/cmTC_5a30e.dir/CheckFunctionExistsEx.c.o -o cmTC_5a30e  -lm -ldl -lpthread -lrt 
+ld.lld: error: undefined symbol: issetugid
+>>> referenced by CheckFunctionExistsEx.c:17 (./extra/libevent/libevent-2.1.11-stable/cmake/CheckFunctionExistsEx.c:17)
+>>>               CMakeFiles/cmTC_5a30e.dir/CheckFunctionExistsEx.c.o:(main)
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_5a30e.dir/build.make:99: cmTC_5a30e] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_5a30e/fast] Error 2
+
+
+
+Determining if the function mach_absolute_time exists failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_9f2e9/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_9f2e9.dir/build.make CMakeFiles/cmTC_9f2e9.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9f2e9.dir/CheckFunctionExistsEx.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wno-dangling-pointer -Wno-missing-profile -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings -DCHECK_FUNCTION_EXISTS=mach_absolute_time -fPIE -o CMakeFiles/cmTC_9f2e9.dir/CheckFunctionExistsEx.c.o -c /mnt/percona-xtrabackup/extra/libevent/libevent-2.1.11-stable/cmake/CheckFunctionExistsEx.c
+Linking C executable cmTC_9f2e9
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9f2e9.dir/link.txt --verbose=1
+/usr/bin/cc -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wno-dangling-pointer -Wno-missing-profile -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings -DCHECK_FUNCTION_EXISTS=mach_absolute_time -Wl,-z,relro -fuse-ld=lld  CMakeFiles/cmTC_9f2e9.dir/CheckFunctionExistsEx.c.o -o cmTC_9f2e9  -lm -ldl -lpthread -lrt 
+ld.lld: error: undefined symbol: mach_absolute_time
+>>> referenced by CheckFunctionExistsEx.c:17 (./extra/libevent/libevent-2.1.11-stable/cmake/CheckFunctionExistsEx.c:17)
+>>>               CMakeFiles/cmTC_9f2e9.dir/CheckFunctionExistsEx.c.o:(main)
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_9f2e9.dir/build.make:99: cmTC_9f2e9] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_9f2e9/fast] Error 2
+
+
+
+Determining if the function timeradd exists failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_b9dff/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_b9dff.dir/build.make CMakeFiles/cmTC_b9dff.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b9dff.dir/CheckFunctionExistsEx.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wno-dangling-pointer -Wno-missing-profile -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings -DCHECK_FUNCTION_EXISTS=timeradd -fPIE -o CMakeFiles/cmTC_b9dff.dir/CheckFunctionExistsEx.c.o -c /mnt/percona-xtrabackup/extra/libevent/libevent-2.1.11-stable/cmake/CheckFunctionExistsEx.c
+Linking C executable cmTC_b9dff
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b9dff.dir/link.txt --verbose=1
+/usr/bin/cc -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wno-dangling-pointer -Wno-missing-profile -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings -DCHECK_FUNCTION_EXISTS=timeradd -Wl,-z,relro -fuse-ld=lld  CMakeFiles/cmTC_b9dff.dir/CheckFunctionExistsEx.c.o -o cmTC_b9dff  -lm -ldl -lpthread -lrt 
+ld.lld: error: undefined symbol: timeradd
+>>> referenced by CheckFunctionExistsEx.c:17 (./extra/libevent/libevent-2.1.11-stable/cmake/CheckFunctionExistsEx.c:17)
+>>>               CMakeFiles/cmTC_b9dff.dir/CheckFunctionExistsEx.c.o:(main)
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_b9dff.dir/build.make:99: cmTC_b9dff] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_b9dff/fast] Error 2
+
+
+
+Determining if the function timerclear exists failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_307fd/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_307fd.dir/build.make CMakeFiles/cmTC_307fd.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_307fd.dir/CheckFunctionExistsEx.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wno-dangling-pointer -Wno-missing-profile -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings -DCHECK_FUNCTION_EXISTS=timerclear -fPIE -o CMakeFiles/cmTC_307fd.dir/CheckFunctionExistsEx.c.o -c /mnt/percona-xtrabackup/extra/libevent/libevent-2.1.11-stable/cmake/CheckFunctionExistsEx.c
+Linking C executable cmTC_307fd
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_307fd.dir/link.txt --verbose=1
+/usr/bin/cc -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wno-dangling-pointer -Wno-missing-profile -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings -DCHECK_FUNCTION_EXISTS=timerclear -Wl,-z,relro -fuse-ld=lld  CMakeFiles/cmTC_307fd.dir/CheckFunctionExistsEx.c.o -o cmTC_307fd  -lm -ldl -lpthread -lrt 
+ld.lld: error: undefined symbol: timerclear
+>>> referenced by CheckFunctionExistsEx.c:17 (./extra/libevent/libevent-2.1.11-stable/cmake/CheckFunctionExistsEx.c:17)
+>>>               CMakeFiles/cmTC_307fd.dir/CheckFunctionExistsEx.c.o:(main)
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_307fd.dir/build.make:99: cmTC_307fd] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_307fd/fast] Error 2
+
+
+
+Determining if the function timercmp exists failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_69bc9/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_69bc9.dir/build.make CMakeFiles/cmTC_69bc9.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_69bc9.dir/CheckFunctionExistsEx.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wno-dangling-pointer -Wno-missing-profile -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings -DCHECK_FUNCTION_EXISTS=timercmp -fPIE -o CMakeFiles/cmTC_69bc9.dir/CheckFunctionExistsEx.c.o -c /mnt/percona-xtrabackup/extra/libevent/libevent-2.1.11-stable/cmake/CheckFunctionExistsEx.c
+Linking C executable cmTC_69bc9
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_69bc9.dir/link.txt --verbose=1
+/usr/bin/cc -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wno-dangling-pointer -Wno-missing-profile -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings -DCHECK_FUNCTION_EXISTS=timercmp -Wl,-z,relro -fuse-ld=lld  CMakeFiles/cmTC_69bc9.dir/CheckFunctionExistsEx.c.o -o cmTC_69bc9  -lm -ldl -lpthread -lrt 
+ld.lld: error: undefined symbol: timercmp
+>>> referenced by CheckFunctionExistsEx.c:17 (./extra/libevent/libevent-2.1.11-stable/cmake/CheckFunctionExistsEx.c:17)
+>>>               CMakeFiles/cmTC_69bc9.dir/CheckFunctionExistsEx.c.o:(main)
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_69bc9.dir/build.make:99: cmTC_69bc9] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_69bc9/fast] Error 2
+
+
+
+Determining if the function timerisset exists failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_d0fc6/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_d0fc6.dir/build.make CMakeFiles/cmTC_d0fc6.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d0fc6.dir/CheckFunctionExistsEx.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wno-dangling-pointer -Wno-missing-profile -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings -DCHECK_FUNCTION_EXISTS=timerisset -fPIE -o CMakeFiles/cmTC_d0fc6.dir/CheckFunctionExistsEx.c.o -c /mnt/percona-xtrabackup/extra/libevent/libevent-2.1.11-stable/cmake/CheckFunctionExistsEx.c
+Linking C executable cmTC_d0fc6
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d0fc6.dir/link.txt --verbose=1
+/usr/bin/cc -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wno-dangling-pointer -Wno-missing-profile -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings -DCHECK_FUNCTION_EXISTS=timerisset -Wl,-z,relro -fuse-ld=lld  CMakeFiles/cmTC_d0fc6.dir/CheckFunctionExistsEx.c.o -o cmTC_d0fc6  -lm -ldl -lpthread -lrt 
+ld.lld: error: undefined symbol: timerisset
+>>> referenced by CheckFunctionExistsEx.c:17 (./extra/libevent/libevent-2.1.11-stable/cmake/CheckFunctionExistsEx.c:17)
+>>>               CMakeFiles/cmTC_d0fc6.dir/CheckFunctionExistsEx.c.o:(main)
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_d0fc6.dir/build.make:99: cmTC_d0fc6] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_d0fc6/fast] Error 2
+
+
+
+Determining if the prototype gethostbyname_r exists for EVENT__HAVE_GETHOSTBYNAME_R_3_ARG failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_9d9a3/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_9d9a3.dir/build.make CMakeFiles/cmTC_9d9a3.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9d9a3.dir/CheckPrototypeDefinition.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wno-dangling-pointer -Wno-missing-profile -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings  -fPIE -o CMakeFiles/cmTC_9d9a3.dir/CheckPrototypeDefinition.c.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/CheckPrototypeDefinition.c
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/CheckPrototypeDefinition.c:14:66: warning: 'struct hostent_data' declared inside parameter list will not be visible outside of this definition or declaration
+   14 | int gethostbyname_r(const char *name, struct hostent *hp, struct hostent_data *hdata) {
+      |                                                                  ^~~~~~~~~~~~
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/CheckPrototypeDefinition.c:14:5: error: conflicting types for 'gethostbyname_r'; have 'int(const char *, struct hostent *, struct hostent_data *)'
+   14 | int gethostbyname_r(const char *name, struct hostent *hp, struct hostent_data *hdata) {
+      |     ^~~~~~~~~~~~~~~
+In file included from /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/CheckPrototypeDefinition.c:1:
+/usr/include/netdb.h:177:12: note: previous declaration of 'gethostbyname_r' with type 'int(const char * restrict,  struct hostent * restrict,  char * restrict,  size_t,  struct hostent ** restrict,  int * restrict)' {aka 'int(const char * restrict,  struct hostent * restrict,  char * restrict,  long unsigned int,  struct hostent ** restrict,  int * restrict)'}
+  177 | extern int gethostbyname_r (const char *__restrict __name,
+      |            ^~~~~~~~~~~~~~~
+gmake[1]: *** [CMakeFiles/cmTC_9d9a3.dir/build.make:78: CMakeFiles/cmTC_9d9a3.dir/CheckPrototypeDefinition.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_9d9a3/fast] Error 2
+
+
+
+#include <netdb.h>
+
+
+static void cmakeRequireSymbol(int dummy, ...) {
+  (void) dummy;
+}
+
+static void checkSymbol(void) {
+#ifndef gethostbyname_r
+  cmakeRequireSymbol(0, &gethostbyname_r);
+#endif
+}
+
+int gethostbyname_r(const char *name, struct hostent *hp, struct hostent_data *hdata) {
+  return 0;
+}
+
+#ifdef __CLASSIC_C__
+int main() {
+  int ac;
+  char*av[];
+#else
+int main(int ac, char *av[]) {
+#endif
+  checkSymbol();
+  if (ac > 1000) {
+    return *av[0];
+  }
+  return 0;
+}
+
+
+Determining if the prototype gethostbyname_r exists for EVENT__HAVE_GETHOSTBYNAME_R_5_ARG failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_ce9fd/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_ce9fd.dir/build.make CMakeFiles/cmTC_ce9fd.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ce9fd.dir/CheckPrototypeDefinition.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wno-dangling-pointer -Wno-missing-profile -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings  -fPIE -o CMakeFiles/cmTC_ce9fd.dir/CheckPrototypeDefinition.c.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/CheckPrototypeDefinition.c
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/CheckPrototypeDefinition.c:14:17: error: conflicting types for 'gethostbyname_r'; have 'struct hostent *(const char *, struct hostent *, char *, size_t,  int *)' {aka 'struct hostent *(const char *, struct hostent *, char *, long unsigned int,  int *)'}
+   14 | struct hostent *gethostbyname_r(const char *name, struct hostent *hp, char *buf, size_t buflen, int *herr) {
+      |                 ^~~~~~~~~~~~~~~
+In file included from /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/CheckPrototypeDefinition.c:1:
+/usr/include/netdb.h:177:12: note: previous declaration of 'gethostbyname_r' with type 'int(const char * restrict,  struct hostent * restrict,  char * restrict,  size_t,  struct hostent ** restrict,  int * restrict)' {aka 'int(const char * restrict,  struct hostent * restrict,  char * restrict,  long unsigned int,  struct hostent ** restrict,  int * restrict)'}
+  177 | extern int gethostbyname_r (const char *__restrict __name,
+      |            ^~~~~~~~~~~~~~~
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/CheckPrototypeDefinition.c: In function 'gethostbyname_r':
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/CheckPrototypeDefinition.c:15:10: error: 'NULL' undeclared (first use in this function)
+   15 |   return NULL;
+      |          ^~~~
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/CheckPrototypeDefinition.c:2:1: note: 'NULL' is defined in header '<stddef.h>'; did you forget to '#include <stddef.h>'?
+    1 | #include <netdb.h>
+  +++ |+#include <stddef.h>
+    2 | 
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/CheckPrototypeDefinition.c:15:10: note: each undeclared identifier is reported only once for each function it appears in
+   15 |   return NULL;
+      |          ^~~~
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/CheckPrototypeDefinition.c:16:1: warning: control reaches end of non-void function [-Wreturn-type]
+   16 | }
+      | ^
+gmake[1]: *** [CMakeFiles/cmTC_ce9fd.dir/build.make:78: CMakeFiles/cmTC_ce9fd.dir/CheckPrototypeDefinition.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_ce9fd/fast] Error 2
+
+
+
+#include <netdb.h>
+
+
+static void cmakeRequireSymbol(int dummy, ...) {
+  (void) dummy;
+}
+
+static void checkSymbol(void) {
+#ifndef gethostbyname_r
+  cmakeRequireSymbol(0, &gethostbyname_r);
+#endif
+}
+
+struct hostent *gethostbyname_r(const char *name, struct hostent *hp, char *buf, size_t buflen, int *herr) {
+  return NULL;
+}
+
+#ifdef __CLASSIC_C__
+int main() {
+  int ac;
+  char*av[];
+#else
+int main(int ac, char *av[]) {
+#endif
+  checkSymbol();
+  if (ac > 1000) {
+    return *av[0];
+  }
+  return 0;
+}
+
+
+Performing C SOURCE FILE Test EVENT__HAVE_DECL_KERN_ARND failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_9fa81/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_9fa81.dir/build.make CMakeFiles/cmTC_9fa81.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9fa81.dir/src.c.o
+/usr/bin/cc -DEVENT__HAVE_DECL_KERN_ARND -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wno-dangling-pointer -Wno-missing-profile -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings  -fPIE -o CMakeFiles/cmTC_9fa81.dir/src.c.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c
+In file included from /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c:2:
+/usr/include/aarch64-linux-gnu/sys/sysctl.h:21:2: warning: #warning "The <sys/sysctl.h> header is deprecated and will be removed." [-Wcpp]
+   21 | #warning "The <sys/sysctl.h> header is deprecated and will be removed."
+      |  ^~~~~~~
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c:3:13: warning: function declaration isn't a prototype [-Wstrict-prototypes]
+    3 |         int main() { (void)KERN_ARND; return 0; }
+      |             ^~~~
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c:3:28: error: 'KERN_ARND' undeclared (first use in this function); did you mean 'KERN_RANDOM'?
+    3 |         int main() { (void)KERN_ARND; return 0; }
+      |                            ^~~~~~~~~
+      |                            KERN_RANDOM
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c:3:28: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_9fa81.dir/build.make:78: CMakeFiles/cmTC_9fa81.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_9fa81/fast] Error 2
+
+
+Source file was:
+
+          #include <sys/sysctl.h>
+        int main() { (void)KERN_ARND; return 0; }
+Determining size of SSIZE_T failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_e3847/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_e3847.dir/build.make CMakeFiles/cmTC_e3847.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e3847.dir/EVENT__SIZEOF_SSIZE_T_UPPER.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wno-dangling-pointer -Wno-missing-profile -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings  -fPIE -o CMakeFiles/cmTC_e3847.dir/EVENT__SIZEOF_SSIZE_T_UPPER.c.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CheckTypeSize/EVENT__SIZEOF_SSIZE_T_UPPER.c
+/mnt/percona-xtrabackup/build/CMakeFiles/CheckTypeSize/EVENT__SIZEOF_SSIZE_T_UPPER.c:33:22: error: 'SSIZE_T' undeclared here (not in a function)
+   33 | #define SIZE (sizeof(SSIZE_T))
+      |                      ^~~~~~~
+/mnt/percona-xtrabackup/build/CMakeFiles/CheckTypeSize/EVENT__SIZEOF_SSIZE_T_UPPER.c:35:12: note: in expansion of macro 'SIZE'
+   35 |   ('0' + ((SIZE / 10000)%10)),
+      |            ^~~~
+gmake[1]: *** [CMakeFiles/cmTC_e3847.dir/build.make:78: CMakeFiles/cmTC_e3847.dir/EVENT__SIZEOF_SSIZE_T_UPPER.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_e3847/fast] Error 2
+
+
+/mnt/percona-xtrabackup/build/CMakeFiles/CheckTypeSize/EVENT__SIZEOF_SSIZE_T_UPPER.c:
+#include <sys/types.h>
+#include <stdint.h>
+#include <stddef.h>
+#include "sys/types.h"
+#include "sys/socket.h"
+#include "netinet/in.h"
+#include "sys/un.h"
+#include "fcntl.h"
+#include "sys/time.h"
+
+
+#undef KEY
+#if defined(__i386)
+# define KEY '_','_','i','3','8','6'
+#elif defined(__x86_64)
+# define KEY '_','_','x','8','6','_','6','4'
+#elif defined(__PPC64__)
+# define KEY '_','_','P','P','C','6','4','_','_'
+#elif defined(__ppc64__)
+# define KEY '_','_','p','p','c','6','4','_','_'
+#elif defined(__PPC__)
+# define KEY '_','_','P','P','C','_','_'
+#elif defined(__ppc__)
+# define KEY '_','_','p','p','c','_','_'
+#elif defined(__aarch64__)
+# define KEY '_','_','a','a','r','c','h','6','4','_','_'
+#elif defined(__ARM_ARCH_7A__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','A','_','_'
+#elif defined(__ARM_ARCH_7S__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','S','_','_'
+#endif
+
+#define SIZE (sizeof(SSIZE_T))
+static char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+  ('0' + ((SIZE / 10000)%10)),
+  ('0' + ((SIZE / 1000)%10)),
+  ('0' + ((SIZE / 100)%10)),
+  ('0' + ((SIZE / 10)%10)),
+  ('0' +  (SIZE    % 10)),
+  ']',
+#ifdef KEY
+  ' ','k','e','y','[', KEY, ']',
+#endif
+  '\0'};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_size[argc];
+  (void)argv;
+  return require;
+}
+
+
+Performing C SOURCE FILE Test EVENT__HAVE_STRUCT_SOCKADDR_IN6_SIN6_LEN failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_e810f/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_e810f.dir/build.make CMakeFiles/cmTC_e810f.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e810f.dir/src.c.o
+/usr/bin/cc -DEVENT__HAVE_STRUCT_SOCKADDR_IN6_SIN6_LEN -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wno-dangling-pointer -Wno-missing-profile -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings  -fPIE -o CMakeFiles/cmTC_e810f.dir/src.c.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c:6:5: warning: function declaration isn't a prototype [-Wstrict-prototypes]
+    6 | int main()
+      |     ^~~~
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c:8:42: error: 'struct sockaddr_in6' has no member named 'sin6_len'
+    8 |   (void)sizeof(((struct sockaddr_in6 *)0)->sin6_len);
+      |                                          ^~
+gmake[1]: *** [CMakeFiles/cmTC_e810f.dir/build.make:78: CMakeFiles/cmTC_e810f.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_e810f/fast] Error 2
+
+
+Source file was:
+
+#include <netinet/in.h>
+#include <sys/socket.h>
+#include <netdb.h>
+
+int main()
+{
+  (void)sizeof(((struct sockaddr_in6 *)0)->sin6_len);
+  return 0;
+}
+
+Performing C SOURCE FILE Test EVENT__HAVE_STRUCT_SOCKADDR_IN_SIN_LEN failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_0a563/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_0a563.dir/build.make CMakeFiles/cmTC_0a563.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0a563.dir/src.c.o
+/usr/bin/cc -DEVENT__HAVE_STRUCT_SOCKADDR_IN_SIN_LEN -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wno-dangling-pointer -Wno-missing-profile -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings  -fPIE -o CMakeFiles/cmTC_0a563.dir/src.c.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c:6:5: warning: function declaration isn't a prototype [-Wstrict-prototypes]
+    6 | int main()
+      |     ^~~~
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c:8:42: error: 'struct sockaddr_in6' has no member named 'sin_len'
+    8 |   (void)sizeof(((struct sockaddr_in6 *)0)->sin_len);
+      |                                          ^~
+gmake[1]: *** [CMakeFiles/cmTC_0a563.dir/build.make:78: CMakeFiles/cmTC_0a563.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_0a563/fast] Error 2
+
+
+Source file was:
+
+#include <netinet/in.h>
+#include <sys/socket.h>
+#include <netdb.h>
+
+int main()
+{
+  (void)sizeof(((struct sockaddr_in6 *)0)->sin_len);
+  return 0;
+}
+
+Performing C SOURCE FILE Test EVENT__HAVE_STRUCT_SOCKADDR_STORAGE___SS_FAMILY failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_a6a1d/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_a6a1d.dir/build.make CMakeFiles/cmTC_a6a1d.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a6a1d.dir/src.c.o
+/usr/bin/cc -DEVENT__HAVE_STRUCT_SOCKADDR_STORAGE___SS_FAMILY -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wno-dangling-pointer -Wno-missing-profile -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings  -fPIE -o CMakeFiles/cmTC_a6a1d.dir/src.c.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c:6:5: warning: function declaration isn't a prototype [-Wstrict-prototypes]
+    6 | int main()
+      |     ^~~~
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c:8:48: error: 'struct sockaddr_storage' has no member named '__ss_family'; did you mean 'ss_family'?
+    8 |   (void)sizeof(((struct sockaddr_storage *)0)->__ss_family);
+      |                                                ^~~~~~~~~~~
+      |                                                ss_family
+gmake[1]: *** [CMakeFiles/cmTC_a6a1d.dir/build.make:78: CMakeFiles/cmTC_a6a1d.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_a6a1d/fast] Error 2
+
+
+Source file was:
+
+#include <netinet/in.h>
+#include <sys/socket.h>
+#include <netdb.h>
+
+int main()
+{
+  (void)sizeof(((struct sockaddr_storage *)0)->__ss_family);
+  return 0;
+}
+
+Performing C++ SOURCE FILE Test HAVE_CXX_W_implicit_int_float_conversion failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_b711c/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_b711c.dir/build.make CMakeFiles/cmTC_b711c.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_b711c.dir/src.cxx.o
+/usr/local/bin/c++ -DHAVE_CXX_W_implicit_int_float_conversion -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -std=c++17 -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -march=armv8-a+crc -Wno-missing-profile  -Wimplicit-int-float-conversion -fPIE -o CMakeFiles/cmTC_b711c.dir/src.cxx.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command-line option '-Wimplicit-int-float-conversion'; did you mean '-Wdeprecated-enum-float-conversion'?
+gmake[1]: *** [CMakeFiles/cmTC_b711c.dir/build.make:78: CMakeFiles/cmTC_b711c.dir/src.cxx.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_b711c/fast] Error 2
+
+
+Source file was:
+int main(void) { return 0; }
+Determining if the include file libudev.h exists failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_af924/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_af924.dir/build.make CMakeFiles/cmTC_af924.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_af924.dir/CheckIncludeFile.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics  -fPIE -o CMakeFiles/cmTC_af924.dir/CheckIncludeFile.c.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: libudev.h: No such file or directory
+    1 | #include <libudev.h>
+      |          ^~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_af924.dir/build.make:78: CMakeFiles/cmTC_af924.dir/CheckIncludeFile.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_af924/fast] Error 2
+
+
+
+Determining if the function processor_bind exists failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_13fb3/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_13fb3.dir/build.make CMakeFiles/cmTC_13fb3.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_13fb3.dir/CheckFunctionExists.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wall -Wextra -Wformat-security -Wvla -Wundef -Wmissing-format-attribute -Wwrite-strings -Wjump-misses-init -Wstringop-truncation -Wmissing-include-dirs -fno-strict-aliasing -DCHECK_FUNCTION_EXISTS=processor_bind -fPIE -o CMakeFiles/cmTC_13fb3.dir/CheckFunctionExists.c.o -c /usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c
+Linking C executable cmTC_13fb3
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_13fb3.dir/link.txt --verbose=1
+/usr/bin/cc -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wall -Wextra -Wformat-security -Wvla -Wundef -Wmissing-format-attribute -Wwrite-strings -Wjump-misses-init -Wstringop-truncation -Wmissing-include-dirs -fno-strict-aliasing -DCHECK_FUNCTION_EXISTS=processor_bind -Wl,-z,relro -fuse-ld=lld  CMakeFiles/cmTC_13fb3.dir/CheckFunctionExists.c.o -o cmTC_13fb3  -lm -ldl -lpthread -lrt 
+ld.lld: error: undefined symbol: processor_bind
+>>> referenced by CheckFunctionExists.c:17 (/usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c:17)
+>>>               CMakeFiles/cmTC_13fb3.dir/CheckFunctionExists.c.o:(main)
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_13fb3.dir/build.make:99: cmTC_13fb3] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_13fb3/fast] Error 2
+
+
+
+Determining if the function atomic_swap_32 exists failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_3bac7/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_3bac7.dir/build.make CMakeFiles/cmTC_3bac7.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3bac7.dir/CheckFunctionExists.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wall -Wextra -Wformat-security -Wvla -Wundef -Wmissing-format-attribute -Wwrite-strings -Wjump-misses-init -Wstringop-truncation -Wmissing-include-dirs -fno-strict-aliasing -DCHECK_FUNCTION_EXISTS=atomic_swap_32 -fPIE -o CMakeFiles/cmTC_3bac7.dir/CheckFunctionExists.c.o -c /usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c
+Linking C executable cmTC_3bac7
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3bac7.dir/link.txt --verbose=1
+/usr/bin/cc -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wall -Wextra -Wformat-security -Wvla -Wundef -Wmissing-format-attribute -Wwrite-strings -Wjump-misses-init -Wstringop-truncation -Wmissing-include-dirs -fno-strict-aliasing -DCHECK_FUNCTION_EXISTS=atomic_swap_32 -Wl,-z,relro -fuse-ld=lld  CMakeFiles/cmTC_3bac7.dir/CheckFunctionExists.c.o -o cmTC_3bac7  -lm -ldl -lpthread -lrt 
+ld.lld: error: undefined symbol: atomic_swap_32
+>>> referenced by CheckFunctionExists.c:17 (/usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c:17)
+>>>               CMakeFiles/cmTC_3bac7.dir/CheckFunctionExists.c.o:(main)
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_3bac7.dir/build.make:99: cmTC_3bac7] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_3bac7/fast] Error 2
+
+
+
+Determining if the function priocntl exists failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_2b6c6/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_2b6c6.dir/build.make CMakeFiles/cmTC_2b6c6.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2b6c6.dir/CheckFunctionExists.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wall -Wextra -Wformat-security -Wvla -Wundef -Wmissing-format-attribute -Wwrite-strings -Wjump-misses-init -Wstringop-truncation -Wmissing-include-dirs -fno-strict-aliasing -DCHECK_FUNCTION_EXISTS=priocntl -fPIE -o CMakeFiles/cmTC_2b6c6.dir/CheckFunctionExists.c.o -c /usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c
+Linking C executable cmTC_2b6c6
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2b6c6.dir/link.txt --verbose=1
+/usr/bin/cc -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wall -Wextra -Wformat-security -Wvla -Wundef -Wmissing-format-attribute -Wwrite-strings -Wjump-misses-init -Wstringop-truncation -Wmissing-include-dirs -fno-strict-aliasing -DCHECK_FUNCTION_EXISTS=priocntl -Wl,-z,relro -fuse-ld=lld  CMakeFiles/cmTC_2b6c6.dir/CheckFunctionExists.c.o -o cmTC_2b6c6  -lm -ldl -lpthread -lrt 
+ld.lld: error: undefined symbol: priocntl
+>>> referenced by CheckFunctionExists.c:17 (/usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c:17)
+>>>               CMakeFiles/cmTC_2b6c6.dir/CheckFunctionExists.c.o:(main)
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_2b6c6.dir/build.make:99: cmTC_2b6c6] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_2b6c6/fast] Error 2
+
+
+
+Determining if the function processor_affinity exists failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_22f84/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_22f84.dir/build.make CMakeFiles/cmTC_22f84.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_22f84.dir/CheckFunctionExists.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wall -Wextra -Wformat-security -Wvla -Wundef -Wmissing-format-attribute -Wwrite-strings -Wjump-misses-init -Wstringop-truncation -Wmissing-include-dirs -fno-strict-aliasing -DCHECK_FUNCTION_EXISTS=processor_affinity -fPIE -o CMakeFiles/cmTC_22f84.dir/CheckFunctionExists.c.o -c /usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c
+Linking C executable cmTC_22f84
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_22f84.dir/link.txt --verbose=1
+/usr/bin/cc -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wall -Wextra -Wformat-security -Wvla -Wundef -Wmissing-format-attribute -Wwrite-strings -Wjump-misses-init -Wstringop-truncation -Wmissing-include-dirs -fno-strict-aliasing -DCHECK_FUNCTION_EXISTS=processor_affinity -Wl,-z,relro -fuse-ld=lld  CMakeFiles/cmTC_22f84.dir/CheckFunctionExists.c.o -o cmTC_22f84  -lm -ldl -lpthread -lrt 
+ld.lld: error: undefined symbol: processor_affinity
+>>> referenced by CheckFunctionExists.c:17 (/usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c:17)
+>>>               CMakeFiles/cmTC_22f84.dir/CheckFunctionExists.c.o:(main)
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_22f84.dir/build.make:99: cmTC_22f84] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_22f84/fast] Error 2
+
+
+
+Determining if the function cpuset_setaffinity exists failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_e1918/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_e1918.dir/build.make CMakeFiles/cmTC_e1918.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e1918.dir/CheckFunctionExists.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wall -Wextra -Wformat-security -Wvla -Wundef -Wmissing-format-attribute -Wwrite-strings -Wjump-misses-init -Wstringop-truncation -Wmissing-include-dirs -fno-strict-aliasing -DCHECK_FUNCTION_EXISTS=cpuset_setaffinity -fPIE -o CMakeFiles/cmTC_e1918.dir/CheckFunctionExists.c.o -c /usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c
+Linking C executable cmTC_e1918
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e1918.dir/link.txt --verbose=1
+/usr/bin/cc -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wall -Wextra -Wformat-security -Wvla -Wundef -Wmissing-format-attribute -Wwrite-strings -Wjump-misses-init -Wstringop-truncation -Wmissing-include-dirs -fno-strict-aliasing -DCHECK_FUNCTION_EXISTS=cpuset_setaffinity -Wl,-z,relro -fuse-ld=lld  CMakeFiles/cmTC_e1918.dir/CheckFunctionExists.c.o -o cmTC_e1918  -lm -ldl -lpthread -lrt 
+ld.lld: error: undefined symbol: cpuset_setaffinity
+>>> referenced by CheckFunctionExists.c:17 (/usr/local/share/cmake-3.24/Modules/CheckFunctionExists.c:17)
+>>>               CMakeFiles/cmTC_e1918.dir/CheckFunctionExists.c.o:(main)
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_e1918.dir/build.make:99: cmTC_e1918] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_e1918/fast] Error 2
+
+
+
+Determining if files atomic.h exist failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_6f5d3/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_6f5d3.dir/build.make CMakeFiles/cmTC_6f5d3.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6f5d3.dir/HAVE_ATOMIC_H.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wall -Wextra -Wformat-security -Wvla -Wundef -Wmissing-format-attribute -Wwrite-strings -Wjump-misses-init -Wstringop-truncation -Wmissing-include-dirs -fno-strict-aliasing  -fPIE -o CMakeFiles/cmTC_6f5d3.dir/HAVE_ATOMIC_H.c.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CheckIncludeFiles/HAVE_ATOMIC_H.c
+/mnt/percona-xtrabackup/build/CMakeFiles/CheckIncludeFiles/HAVE_ATOMIC_H.c:2:10: fatal error: atomic.h: No such file or directory
+    2 | #include <atomic.h>
+      |          ^~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_6f5d3.dir/build.make:78: CMakeFiles/cmTC_6f5d3.dir/HAVE_ATOMIC_H.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_6f5d3/fast] Error 2
+
+
+Source:
+/* */
+#include <atomic.h>
+
+
+int main(void){return 0;}
+
+Determining if files sun_prefetch.h exist failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_e9581/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_e9581.dir/build.make CMakeFiles/cmTC_e9581.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e9581.dir/HAVE_SUN_PREFETCH_H.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wall -Wextra -Wformat-security -Wvla -Wundef -Wmissing-format-attribute -Wwrite-strings -Wjump-misses-init -Wstringop-truncation -Wmissing-include-dirs -fno-strict-aliasing  -fPIE -o CMakeFiles/cmTC_e9581.dir/HAVE_SUN_PREFETCH_H.c.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CheckIncludeFiles/HAVE_SUN_PREFETCH_H.c
+/mnt/percona-xtrabackup/build/CMakeFiles/CheckIncludeFiles/HAVE_SUN_PREFETCH_H.c:2:10: fatal error: sun_prefetch.h: No such file or directory
+    2 | #include <sun_prefetch.h>
+      |          ^~~~~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_e9581.dir/build.make:78: CMakeFiles/cmTC_e9581.dir/HAVE_SUN_PREFETCH_H.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_e9581/fast] Error 2
+
+
+Source:
+/* */
+#include <sun_prefetch.h>
+
+
+int main(void){return 0;}
+
+Determining if files Processtopologyapi.h exist failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_4fdc3/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_4fdc3.dir/build.make CMakeFiles/cmTC_4fdc3.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4fdc3.dir/HAVE_PROCESSTOPOLOGYAPI_H.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wall -Wextra -Wformat-security -Wvla -Wundef -Wmissing-format-attribute -Wwrite-strings -Wjump-misses-init -Wstringop-truncation -Wmissing-include-dirs -fno-strict-aliasing  -fPIE -o CMakeFiles/cmTC_4fdc3.dir/HAVE_PROCESSTOPOLOGYAPI_H.c.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CheckIncludeFiles/HAVE_PROCESSTOPOLOGYAPI_H.c
+/mnt/percona-xtrabackup/build/CMakeFiles/CheckIncludeFiles/HAVE_PROCESSTOPOLOGYAPI_H.c:2:10: fatal error: Processtopologyapi.h: No such file or directory
+    2 | #include <Processtopologyapi.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_4fdc3.dir/build.make:78: CMakeFiles/cmTC_4fdc3.dir/HAVE_PROCESSTOPOLOGYAPI_H.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_4fdc3/fast] Error 2
+
+
+Source:
+/* */
+#include <Processtopologyapi.h>
+
+
+int main(void){return 0;}
+
+Determining if files Processthreadsapi.h exist failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_bb323/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_bb323.dir/build.make CMakeFiles/cmTC_bb323.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_bb323.dir/HAVE_PROCESSTHREADSAPI_H.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wall -Wextra -Wformat-security -Wvla -Wundef -Wmissing-format-attribute -Wwrite-strings -Wjump-misses-init -Wstringop-truncation -Wmissing-include-dirs -fno-strict-aliasing  -fPIE -o CMakeFiles/cmTC_bb323.dir/HAVE_PROCESSTHREADSAPI_H.c.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CheckIncludeFiles/HAVE_PROCESSTHREADSAPI_H.c
+/mnt/percona-xtrabackup/build/CMakeFiles/CheckIncludeFiles/HAVE_PROCESSTHREADSAPI_H.c:2:10: fatal error: Processthreadsapi.h: No such file or directory
+    2 | #include <Processthreadsapi.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_bb323.dir/build.make:78: CMakeFiles/cmTC_bb323.dir/HAVE_PROCESSTHREADSAPI_H.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_bb323/fast] Error 2
+
+
+Source:
+/* */
+#include <Processthreadsapi.h>
+
+
+int main(void){return 0;}
+
+Determining if files ncursesw.h exist failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_a7ec0/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_a7ec0.dir/build.make CMakeFiles/cmTC_a7ec0.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a7ec0.dir/HAVE_NCURSESW_H.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wall -Wextra -Wformat-security -Wvla -Wundef -Wmissing-format-attribute -Wwrite-strings -Wjump-misses-init -Wstringop-truncation -Wmissing-include-dirs -fno-strict-aliasing  -fPIE -o CMakeFiles/cmTC_a7ec0.dir/HAVE_NCURSESW_H.c.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CheckIncludeFiles/HAVE_NCURSESW_H.c
+/mnt/percona-xtrabackup/build/CMakeFiles/CheckIncludeFiles/HAVE_NCURSESW_H.c:2:10: fatal error: ncursesw.h: No such file or directory
+    2 | #include <ncursesw.h>
+      |          ^~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_a7ec0.dir/build.make:78: CMakeFiles/cmTC_a7ec0.dir/HAVE_NCURSESW_H.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_a7ec0/fast] Error 2
+
+
+Source:
+/* */
+#include <ncursesw.h>
+
+
+int main(void){return 0;}
+
+Determining if files ncurses/curses.h exist failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_ff570/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_ff570.dir/build.make CMakeFiles/cmTC_ff570.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ff570.dir/HAVE_NCURSES_CURSES_H.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wall -Wextra -Wformat-security -Wvla -Wundef -Wmissing-format-attribute -Wwrite-strings -Wjump-misses-init -Wstringop-truncation -Wmissing-include-dirs -fno-strict-aliasing  -fPIE -o CMakeFiles/cmTC_ff570.dir/HAVE_NCURSES_CURSES_H.c.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CheckIncludeFiles/HAVE_NCURSES_CURSES_H.c
+/mnt/percona-xtrabackup/build/CMakeFiles/CheckIncludeFiles/HAVE_NCURSES_CURSES_H.c:2:10: fatal error: ncurses/curses.h: No such file or directory
+    2 | #include <ncurses/curses.h>
+      |          ^~~~~~~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_ff570.dir/build.make:78: CMakeFiles/cmTC_ff570.dir/HAVE_NCURSES_CURSES_H.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_ff570/fast] Error 2
+
+
+Source:
+/* */
+#include <ncurses/curses.h>
+
+
+int main(void){return 0;}
+
+Determining if files xfs/xfs.h exist failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_61add/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_61add.dir/build.make CMakeFiles/cmTC_61add.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_61add.dir/HAVE_XFS_XFS_H.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wall -Wextra -Wformat-security -Wvla -Wundef -Wmissing-format-attribute -Wwrite-strings -Wjump-misses-init -Wstringop-truncation -Wmissing-include-dirs -fno-strict-aliasing  -fPIE -o CMakeFiles/cmTC_61add.dir/HAVE_XFS_XFS_H.c.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CheckIncludeFiles/HAVE_XFS_XFS_H.c
+/mnt/percona-xtrabackup/build/CMakeFiles/CheckIncludeFiles/HAVE_XFS_XFS_H.c:2:10: fatal error: xfs/xfs.h: No such file or directory
+    2 | #include <xfs/xfs.h>
+      |          ^~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_61add.dir/build.make:78: CMakeFiles/cmTC_61add.dir/HAVE_XFS_XFS_H.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_61add/fast] Error 2
+
+
+Source:
+/* */
+#include <xfs/xfs.h>
+
+
+int main(void){return 0;}
+
+Performing C SOURCE FILE Test HAVE__BITSCANFORWARD failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_64852/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_64852.dir/build.make CMakeFiles/cmTC_64852.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_64852.dir/src.c.o
+/usr/bin/cc -DHAVE__BITSCANFORWARD -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wall -Wextra -Wformat-security -Wvla -Wundef -Wmissing-format-attribute -Wwrite-strings -Wjump-misses-init -Wstringop-truncation -Wmissing-include-dirs -fno-strict-aliasing  -fPIE -o CMakeFiles/cmTC_64852.dir/src.c.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c:2:10: fatal error: intrin.h: No such file or directory
+    2 | #include <intrin.h>
+      |          ^~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_64852.dir/build.make:78: CMakeFiles/cmTC_64852.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_64852/fast] Error 2
+
+
+Source file was:
+
+#include <intrin.h>
+unsigned long A = 7;
+int main()
+{
+  unsigned long a;
+  unsigned char res = _BitScanForward(&a, A);
+  return (int)a;
+}
+Performing C SOURCE FILE Test HAVE__BITSCANREVERSE failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_59ba3/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_59ba3.dir/build.make CMakeFiles/cmTC_59ba3.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_59ba3.dir/src.c.o
+/usr/bin/cc -DHAVE__BITSCANREVERSE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wall -Wextra -Wformat-security -Wvla -Wundef -Wmissing-format-attribute -Wwrite-strings -Wjump-misses-init -Wstringop-truncation -Wmissing-include-dirs -fno-strict-aliasing  -fPIE -o CMakeFiles/cmTC_59ba3.dir/src.c.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c:2:10: fatal error: intrin.h: No such file or directory
+    2 | #include <intrin.h>
+      |          ^~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_59ba3.dir/build.make:78: CMakeFiles/cmTC_59ba3.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_59ba3/fast] Error 2
+
+
+Source file was:
+
+#include <intrin.h>
+unsigned long A = 7;
+int main()
+{
+  unsigned long a;
+  unsigned char res = _BitScanReverse(&a, A);
+  return (int)a;
+}
+Performing C++ SOURCE FILE Test HAVE_MAC_OS_X_THREAD_INFO failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_3e567/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_3e567.dir/build.make CMakeFiles/cmTC_3e567.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_3e567.dir/src.cxx.o
+/usr/local/bin/c++ -DHAVE_MAC_OS_X_THREAD_INFO -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -std=c++17 -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -march=armv8-a+crc -Wall -Wextra -Wformat-security -Wvla -Wundef -Wmissing-format-attribute -Woverloaded-virtual -Wcast-qual -Wimplicit-fallthrough=5 -Wstringop-truncation -Wsuggest-override -Wmissing-include-dirs -Wextra-semi -Wlogical-op -fno-strict-aliasing  -fPIE -o CMakeFiles/cmTC_3e567.dir/src.cxx.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.cxx
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.cxx:2:10: fatal error: mach/mach_init.h: No such file or directory
+    2 | #include <mach/mach_init.h>
+      |          ^~~~~~~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_3e567.dir/build.make:78: CMakeFiles/cmTC_3e567.dir/src.cxx.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_3e567/fast] Error 2
+
+
+Source file was:
+
+#include <mach/mach_init.h>
+#include <mach/thread_act.h>
+#include <mach/mach_port.h>
+int main()
+{
+mach_port_t thread_port;
+kern_return_t ret_code;
+mach_msg_type_number_t basic_info_count;
+thread_basic_info_data_t basic_info;
+mach_port_t current_task = mach_task_self();
+
+thread_port = mach_thread_self();
+ret_code = thread_info(thread_port,
+                       THREAD_BASIC_INFO,
+                       (thread_info_t) &basic_info,
+                       &basic_info_count);
+mach_port_deallocate(current_task, thread_port);
+return ret_code;
+}
+Performing C SOURCE FILE Test HAVE_SOLARIS_AFFINITY failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_6114b/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_6114b.dir/build.make CMakeFiles/cmTC_6114b.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6114b.dir/src.c.o
+/usr/bin/cc -DHAVE_SOLARIS_AFFINITY -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security   -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -Wall -Wextra -Wformat-security -Wvla -Wundef -Wmissing-format-attribute -Wwrite-strings -Wjump-misses-init -Wstringop-truncation -Wmissing-include-dirs -fno-strict-aliasing  -fPIE -o CMakeFiles/cmTC_6114b.dir/src.c.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c
+/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.c:3:10: fatal error: sys/lwp.h: No such file or directory
+    3 | #include <sys/lwp.h>
+      |          ^~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_6114b.dir/build.make:78: CMakeFiles/cmTC_6114b.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_6114b/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/lwp.h>
+#include <sys/processor.h>
+#include <sys/procset.h>
+int main()
+{
+  processorid_t cpu_id = (processorid_t)0;
+  id_t tid = _lwp_self();
+  processor_bind(P_LWPID, tid, cpu_id, 0);
+}
+Performing C++ SOURCE FILE Test HAVE_CXX_W_shadow_field failed with the following output:
+Change Dir: /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_cab08/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_cab08.dir/build.make CMakeFiles/cmTC_cab08.dir/build
+gmake[1]: Entering directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_cab08.dir/src.cxx.o
+/usr/local/bin/c++ -DHAVE_CXX_W_shadow_field -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS  -std=c++17 -fno-omit-frame-pointer -ffp-contract=off -ftls-model=initial-exec -g -O2 -ffile-prefix-map=/mnt/percona-xtrabackup=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -moutline-atomics -march=armv8-a+crc -Wall -Wextra -Wformat-security -Wvla -Wundef -Wmissing-format-attribute -Woverloaded-virtual -Wcast-qual -Wimplicit-fallthrough=5 -Wstringop-truncation -Wsuggest-override -Wmissing-include-dirs -Wextra-semi -Wlogical-op  -Wshadow-field -fPIE -o CMakeFiles/cmTC_cab08.dir/src.cxx.o -c /mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command-line option '-Wshadow-field'; did you mean '-Wshadow-ivar'?
+gmake[1]: *** [CMakeFiles/cmTC_cab08.dir/build.make:78: CMakeFiles/cmTC_cab08.dir/src.cxx.o] Error 1
+gmake[1]: Leaving directory '/mnt/percona-xtrabackup/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_cab08/fast] Error 2
+
+
+Source file was:
+int main(void) { return 0; }
